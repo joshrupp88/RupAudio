@@ -1,0 +1,37 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-color: rgb(31, 90, 5);
+    display: flex;
+}
+
+.site-logo-section {
+    height: 100%;
+    width: 215px;
+    min-width: 215px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid black;
+}
+
+.site-logo-section img {
+    height: 90%;
+    margin: 0 10px;
+}
+
+.site-logo-section h1 {
+    font: 700 24px Arial;
+    color: rgb(212, 175, 55);
+}
+
+.search-section {
+    flex: 1;
+    border-right: 1px solid black;
+}
+
+.user-profile-section {
+    width: 300px;
+}

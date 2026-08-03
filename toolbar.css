@@ -5,25 +5,29 @@
     right: 0;
     height: 80px;
     background-color: rgb(31, 90, 5);
-    display: flex;
+    display: inline-flex;
 }
 
 .site-logo-section {
-    height: 100%;
-    width: 215px;
-    min-width: 215px;
+    max-height: 100%;
+    max-width: 215px;
+    min-width: 100px;
+    flex: 1;
     display: flex;
+    container-type: inline-size;
     align-items: center;
     text-decoration: none;
+    border-right: 1px solid black;
 }
 
 .site-logo-section img {
-    height: 90%;
-    margin: 0 10px;
+    width: 30%;
+    height: auto;
+    margin: 0 clamp(5px, calc(10 * 100cqw / 215), 10px);
 }
 
 .site-logo-section h1 {
-    font: 700 24px Arial;
+    font: 700 clamp(12px, calc(24 * 100cqw / 215), 24px) Arial;
     color: rgb(212, 175, 55);
 }
 

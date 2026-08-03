@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="toolbar.css">
     <link rel="stylesheet" href="nav-panel.css">
+    <script src="homepage.js" defer></script>
 </head>
 <body>
+
     <header id="Toolbar" class="toolbar">
         <a id="Site Logo" class="site-logo-section" href="books.rupaudio.com">
             <img src="site-icons/RupAudio-Logo.png" alt="RupAudio site logo">
@@ -27,9 +29,92 @@
     </header>
 
 
-    <nav></nav>
+    <nav id="Nav-Panel" class="hidden" aria-hidden="true">
+        <div id="Nav Tabs" class="nav-tabs">
+            <button
+                type="button"
+                id="nav-toggle-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false"
+                aria-controls="Nav-Panel">
+                <svg class="btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+                
+                <span class="btn-text">Show/Hide Menu</span>
+            </button>
+
+            <a href=""
+                id="library-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/library-icon.png"
+                alt="library icon">
+                
+                <span class="btn-text">Library</span>
+            </a>
+
+            <a href=""
+                id="social-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/social-icon.png"
+                alt="social icon">
+                
+                <span class="btn-text">Community</span>
+            </a>
+
+            <a href=""
+                id="upload-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/upload-icon.png"
+                alt="upload icon">
+                
+                <span class="btn-text">Upload Content</span>
+            </a>
+        </div>
+
+        <div id="Info Tabs" class="info-tabs">
+            <a href=""
+                id="info-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/info-icon.png"
+                alt="info icon">
+                
+                <span class="btn-text">Need Help?</span>
+            </a>
+
+            <a href=""
+                id="suggestion-btn"
+                class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/idea-icon.png"
+                alt="idea icon">
+                
+                <span class="btn-text">Got Feedback?</span>
+            </a>
+        </div>
+    </nav>
 
 
-    <main></main>
+    <main id="Content-Panel" class="content-panel">
+        This is the content panel
+    </main>
+
 </body>
 </html>

@@ -1,0 +1,79 @@
+#Nav-Panel {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(212, 175, 55);
+    transition: width 300ms ease-in-out;
+    font: 500 16px Arial;
+}
+
+#Nav-Panel a {
+    text-decoration: none;
+}
+
+#Nav-Panel.hidden {
+    width: 50px;
+}
+
+.nav-tabs {
+    flex: 1;
+}
+
+.info-tabs {
+    height: 100px;
+}
+
+/* Base Button Styling */
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden; /* Prevents text overflow during animation */
+}
+
+.nav-btn:hover {
+    background-color: rgb(200, 172, 78);
+}
+
+.collapsed {
+    gap: 0;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+#suggestion-btn .btn-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 -3px;
+}
+
+.btn-text {
+    white-space: nowrap;
+    opacity: 1;
+    max-width: 140px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-btn.collapsed .btn-text {
+    opacity: 0;
+    max-width: 0;
+    margin: 0;
+    padding: 0;
+}

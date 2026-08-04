@@ -1,4 +1,10 @@
+/* Globally set toolbar height for reference by the toolbar, nav panel, and content panel */
+:root {
+    --toolbar-height: clamp(40px, calc(13.33vw - 27px), 80px)
+}
+
 body {
-    padding-bottom: 200vh;
-    background-color: rgb(31, 90, 5);
+    background-color: rgb(29, 74, 10);
+    margin: 0;
+    min-height: calc(100vh - 80px);
 }

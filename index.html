@@ -14,26 +14,58 @@
 <body>
 
     <header id="Toolbar" class="toolbar">
-        <a id="Site Logo" class="site-logo-section" href="https://books.rupaudio.com">
-            <img src="site-icons/RupAudio-Logo.png" alt="RupAudio site logo">
+        <a id="Site-Logo" class="site-logo-section" href="https://books.rupaudio.com">
+            <img
+            src="site-icons/RupAudio-Logo.png"
+            alt="RupAudio site logo"
+            width="30" height="30"> <!-- Prevents the site logo icon from rendering huge at first -->
             <h1>RupAudio</h1>
         </a>
 
-        <div id="Search Section" class="search-section">
-            This is the search section
+        <div id="Search-Section" class="search-section">
+            <div id="Search-Container">
+                <input
+                    type="text"
+                    id="Search-Bar"
+                    class="search-bar"
+                    placeholder="Search...">
+                <button
+                    type="button"
+                    id="Search-Btn"
+                    class="search-btn">
+                    <img
+                        src="site-icons/search-icon.png"
+                        alt="search icon"
+                        width="40" height="40">
+                </button>
+            </div>
         </div>
 
-        <div id="User Profile Section" class="user-profile-section">
-            This is the user profile section
+        <div id="User-Profile-Section" class="user-profile-section">
+            <a href=""
+                id="Notifications-Button">
+                <img
+                    src="site-icons/notifications-icon.png"
+                    alt="notifications icon"
+                    width="40" height="40">
+            </a>
+
+            <a href=""
+                id="User-Profile-Button">
+                <img
+                    src="site-icons/user-profile-icon.png"
+                    alt="user profile icon"
+                    width="40" height="40">
+            </a>
         </div>
     </header>
 
 
     <nav id="Nav-Panel" class="hidden" aria-hidden="true">
-        <div id="Nav Tabs" class="nav-tabs">
+        <div id="Nav-Tabs" class="nav-tabs">
             <button
                 type="button"
-                id="nav-toggle-btn"
+                id="Nav-Toggle-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false"
                 aria-controls="Nav-Panel">
@@ -48,7 +80,7 @@
             </button>
 
             <a href=""
-                id="library-btn"
+                id="Library-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false">
                 <img
@@ -60,7 +92,7 @@
             </a>
 
             <a href=""
-                id="social-btn"
+                id="Social-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false">
                 <img
@@ -72,7 +104,7 @@
             </a>
 
             <a href=""
-                id="upload-btn"
+                id="Upload-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false">
                 <img
@@ -86,7 +118,7 @@
 
         <div id="Info Tabs" class="info-tabs">
             <a href=""
-                id="info-btn"
+                id="Info-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false">
                 <img
@@ -98,7 +130,7 @@
             </a>
 
             <a href=""
-                id="suggestion-btn"
+                id="Suggestion-Btn"
                 class="nav-btn collapsed"
                 aria-expanded="false">
                 <img

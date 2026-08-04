@@ -1,4 +1,4 @@
-const navToggleBtn = document.getElementById('nav-toggle-btn')
+const navToggleBtn = document.getElementById('Nav-Toggle-Btn')
 const navMenu = document.getElementById('Nav-Panel')
 const contentPanel = document.querySelector('.content-panel')
 const btnText = document.querySelector('.btn-text')
@@ -19,7 +19,7 @@ navToggleBtn.addEventListener('click', () => {
         navMenu.setAttribute('aria-hidden', 'false')
 
         // Shift left edge of content panel to compensate for larger Nav Panel
-        contentPanel.style.left = '200px'
+        contentPanel.style.marginLeft = '200px'
 
     } else {
         // COLLAPSE: Add collapsed class to nav buttons and add hidden class to Nav Panel
@@ -32,7 +32,7 @@ navToggleBtn.addEventListener('click', () => {
         navMenu.setAttribute('aria-hidden', 'true')
 
         // Shift left edge of Content Panel back over to the left
-        contentPanel.style.left = '50px'
+        contentPanel.style.marginLeft = '50px'
 
     }
 })

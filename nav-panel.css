@@ -1,9 +1,10 @@
 #Nav-Panel {
     position: fixed;
-    top: 80px;
+    top: var(--toolbar-height);
     left: 0;
     bottom: 0;
     width: 200px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     background-color: rgb(212, 175, 55);

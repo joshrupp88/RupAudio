@@ -3,40 +3,122 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 80px;
-    background-color: rgb(31, 90, 5);
+    height: var(--toolbar-height); /* global var set in general.css */
+    background-color: rgb(29, 74, 10);
     display: flex;
+    align-items: center;
     z-index: 100;
 }
 
 .site-logo-section {
-    max-height: 100%;
-    max-width: 215px;
+    flex: 2;
+    height: 90%;
+    max-width: 250px;
     min-width: 100px;
-    flex: 1;
     display: flex;
-    container-type: inline-size;
+    container-type: size;
     align-items: center;
     text-decoration: none;
-    border-right: 1px solid black;
 }
 
 .site-logo-section img {
-    width: 30%;
-    height: auto;
-    margin: 0 clamp(5px, calc(10 * 100cqw / 215), 10px);
+    height: 90%;
+    width: auto;
+    margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px);
 }
 
 .site-logo-section h1 {
-    font: 700 clamp(12px, calc(24 * 100cqw / 215), 24px) Arial;
+    font: 700 clamp(12px, calc(24 * 100cqh / 80), 24px) Arial;
     color: rgb(212, 175, 55);
 }
 
 .search-section {
-    flex: 1;
-    border-right: 1px solid black;
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    container-type: size;
+    height: 100%;
+}
+
+.search-section div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 400px;
+    container-type: size;
+    height: calc(40 * 100cqh / 80);
+}
+
+.search-bar {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    padding: 1px clamp(20px, 100cqh, 40px) 1px 8px;
+    font: 500 clamp(8px, calc(100cqh / 2.5), 16px) Arial;
+}
+
+.search-bar:focus {
+    outline: none;
+    border-width: 2px;
+}
+
+.search-btn {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    opacity: 0.75;
+}
+
+.search-btn:active {
+    padding: 6px;
+}
+
+.search-btn img {
+    object-fit: fill;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .user-profile-section {
-    width: 300px;
+    flex: 2;
+    min-width: 100px;
+    max-width: 250px;
+    height: 100%;
+    display: flex;
+    container-type: size;
+    align-items: center;
+    justify-content: right;
+    padding-right: 5px;
+}
+
+.user-profile-section a {
+    height: clamp(20px, calc(40 * 100cqh / 80), 40px);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: clamp(5px, calc(10 * 100cqh / 80), 10px);
+    padding: 0;
+}
+
+.user-profile-section a img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }

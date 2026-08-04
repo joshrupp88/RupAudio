@@ -1,9 +1,9 @@
 .content-panel {
     background-color: grey;
-    position: absolute;
-    top: 80px;
-    left: 50px;
-    right: 0;
-    bottom: 0;
-    transition: left 300ms ease-in-out;
+    margin-top: var(--toolbar-height);
+    margin-left: 50px;
+    min-height: calc(100vh - 80px);
+    transition: margin-left 300ms ease-in-out;
+    position: relative;
+    z-index: 1;
 }

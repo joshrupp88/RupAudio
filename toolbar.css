@@ -24,13 +24,13 @@
 .site-logo-section img {
     height: 90%;
     width: auto;
-    margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px) 0 8px;
+    margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px) 0 5px;
 }
 
-.site-logo-section h1 {
+/* .site-logo-section h1 {
     font: 700 clamp(12px, calc(24 * 100cqh / 80), 24px) Arial;
     color: rgb(212, 175, 55);
-}
+} */
 
 .search-section {
     flex: 3;

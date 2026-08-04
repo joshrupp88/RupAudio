@@ -24,7 +24,7 @@
 .site-logo-section img {
     height: 90%;
     width: auto;
-    margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px);
+    margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px) 0 8px;
 }
 
 .site-logo-section h1 {

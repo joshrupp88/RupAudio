@@ -4,7 +4,7 @@
     left: 0;
     right: 0;
     height: var(--toolbar-height); /* global var set in general.css */
-    background-color: rgb(29, 74, 10);
+    background-color: var(--forrest);
     display: flex;
     align-items: center;
     z-index: 100;
@@ -26,11 +26,6 @@
     width: auto;
     margin: 0 clamp(5px, calc(10 * 100cqh / 80), 10px) 0 5px;
 }
-
-/* .site-logo-section h1 {
-    font: 700 clamp(12px, calc(24 * 100cqh / 80), 24px) Arial;
-    color: rgb(212, 175, 55);
-} */
 
 .search-section {
     flex: 3;
@@ -104,20 +99,33 @@
     container-type: size;
     align-items: center;
     justify-content: right;
-    padding-right: 5px;
+    position: relative;
 }
 
-.user-profile-section a {
+.user-profile-section button {
     height: clamp(20px, calc(40 * 100cqh / 80), 40px);
     aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: clamp(5px, calc(10 * 100cqh / 80), 10px);
+    margin-right: 15px;
     padding: 0;
+    border-radius: 10px;
+    transition: transform 300ms ease-in-out;
+    background-color: transparent;
+    border: none;
 }
 
-.user-profile-section a img {
+.user-profile-section button:hover {
+    transform: scale(1.15);
+}
+
+.user-profile-section button:active {
+    transition: transform 0ms ease;
+    transform: none;
+}
+
+.user-profile-section button img {
     object-fit: cover;
     width: 100%;
     height: 100%;

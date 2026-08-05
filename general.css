@@ -1,10 +1,15 @@
-/* Globally set toolbar height for reference by the toolbar, nav panel, and content panel */
+/* Globally set reference variables */
 :root {
-    --toolbar-height: clamp(40px, calc(13.33vw - 27px), 80px)
+    --toolbar-height: clamp(40px, calc(13.33vw - 27px), 80px);
+    --golden: rgb(212, 175, 55);
+    --bronze: rgb(200, 172, 78);
+    --forrest: rgb(29, 74, 10);
+    --leaf: rgb(77, 110, 62);
+    --tooltip-bg: rgb(158, 158, 158);
 }
 
 body {
-    background-color: rgb(29, 74, 10);
+    background-color: var(--forrest);
     margin: 0;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - var(--toolbar-height));
 }

@@ -7,9 +7,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: rgb(212, 175, 55);
+    background-color: var(--golden);
     transition: width 300ms ease-in-out;
     font: 500 16px Arial;
+    z-index: 100;
 }
 
 #Nav-Panel a {
@@ -46,7 +47,7 @@
 }
 
 .nav-btn:hover {
-    background-color: rgb(200, 172, 78);
+    background-color: var(--bronze);
 }
 
 .collapsed {

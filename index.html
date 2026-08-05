@@ -27,7 +27,7 @@
                     type="text"
                     id="Search-Bar"
                     class="search-bar"
-                    placeholder="Search...">
+                    placeholder="Search books, songs, authors...">
                 <button
                     type="button"
                     id="Search-Btn"
@@ -35,27 +35,39 @@
                     <img
                         src="site-icons/search-icon.png"
                         alt="search icon"
-                        width="40" height="40">
+                        width="30" height="30">
                 </button>
             </div>
         </div>
 
         <div id="User-Profile-Section" class="user-profile-section">
-            <a href=""
-                id="Notifications-Button">
+            <button
+                id="Notifications-Button"
+                title="Notifications"
+                aria-hidden="true"
+                aria-controls="">
                 <img
                     src="site-icons/notifications-icon.png"
                     alt="notifications icon"
                     width="40" height="40">
-            </a>
+            </button>
 
-            <a href=""
-                id="User-Profile-Button">
+            <div id="Notifications-Tooltip" class="user-profile-tooltip">
+
+            </div>
+
+            <button
+                id="User-Profile-Button"
+                title="User Profile">
                 <img
                     src="site-icons/user-profile-icon.png"
                     alt="user profile icon"
                     width="40" height="40">
-            </a>
+            </button>
+
+            <div id="User-Profile-Tooltip" class="user-profile-tooltip">
+                
+            </div>
         </div>
     </header>
 
@@ -85,7 +97,8 @@
                 <img
                 class="btn-icon"
                 src="site-icons/library-icon.png"
-                alt="library icon">
+                alt="library icon"
+                width="40" height="40">
                 
                 <span class="btn-text">Library</span>
             </a>
@@ -97,7 +110,8 @@
                 <img
                 class="btn-icon"
                 src="site-icons/social-icon.png"
-                alt="social icon">
+                alt="social icon"
+                width="40" height="40">
                 
                 <span class="btn-text">Community</span>
             </a>
@@ -109,7 +123,8 @@
                 <img
                 class="btn-icon"
                 src="site-icons/upload-icon.png"
-                alt="upload icon">
+                alt="upload icon"
+                width="40" height="40">
                 
                 <span class="btn-text">Upload Content</span>
             </a>
@@ -123,7 +138,8 @@
                 <img
                 class="btn-icon"
                 src="site-icons/info-icon.png"
-                alt="info icon">
+                alt="info icon"
+                width="40" height="40">
                 
                 <span class="btn-text">Need Help?</span>
             </a>
@@ -135,7 +151,8 @@
                 <img
                 class="btn-icon"
                 src="site-icons/idea-icon.png"
-                alt="idea icon">
+                alt="idea icon"
+                width="40" height="40">
                 
                 <span class="btn-text">Got Feedback?</span>
             </a>

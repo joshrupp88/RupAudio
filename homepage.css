@@ -1,8 +1,8 @@
 .content-panel {
-    background-color: grey;
+    background-color: var(--leaf);
     margin-top: var(--toolbar-height);
     margin-left: 50px;
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - var(--toolbar-height));
     transition: margin-left 300ms ease-in-out;
     position: relative;
     z-index: 1;

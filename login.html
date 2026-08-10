@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RupAudio Login</title>
+    
+    <link rel="stylesheet" href="login.css">
+    <link rel="icon" type="image/png" href="site-icons/RupAudio-Logo.png">
+
+
+    <!-- Supabase JS CDN library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="login.js" defer></script>
+</head>
+<body>
+
+    <div class="card">
+        <!-- SECTION 1: AUTHENTICATION (Logged Out View) -->
+        <div id="auth-section">
+            <h2>Account Login / Sign Up</h2>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" />
+            </div>
+            <button id="btn-login">Log In</button>
+            <button id="btn-signup" class="secondary">Sign Up</button>
+        </div>
+
+        <!-- SECTION 2: USER PROFILE (Logged In View) -->
+        <div id="profile-section" class="hidden">
+            <h2>User Profile</h2>
+            <form id="profile-form">
+                <div class="form-group">
+                    <label for="profile-email">Account Email (Read-Only)</label>
+                    <input type="text" id="profile-email" disabled />
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="e.g. dev_josh" />
+                </div>
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" placeholder="e.g. Josh R." />
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <textarea id="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+                </div>
+                <button type="submit" id="btn-save">Save Profile Changes</button>
+            </form>
+            <button id="btn-logout" class="secondary">Sign Out</button>
+        </div>
+
+        <!-- Feedback Message Box -->
+        <div id="status-msg" class="hidden"></div>
+    </div>
+
+
+</body>
+</html>

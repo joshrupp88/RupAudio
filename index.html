@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>RupAudio Home</title>
+
     <link rel="icon" type="image/png" href="site-icons/RupAudio-Logo.png">
     <link rel="stylesheet" href="general.css">
     <link rel="stylesheet" href="homepage.css">
     <link rel="stylesheet" href="toolbar.css">
     <link rel="stylesheet" href="nav-panel.css">
+
+    <!-- Supabase JS CDN library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="homepage.js" defer></script>
+    <script src="auth.js" defer></script> <!-- Load this last so all helper functions are already defined -->
 </head>
 <body>
 
@@ -42,37 +48,45 @@
 
         <div id="User-Profile-Section" class="user-profile-section">
             <button
-                id="Notifications-Button"
+                id="Notifications-Btn"
+                class="hidden"
                 title="Notifications"
-                aria-hidden="true"
-                aria-controls="">
+                aria-controls="Notifications-Tooltip">
                 <img
                     src="site-icons/notifications-icon.png"
                     alt="notifications icon"
                     width="40" height="40">
             </button>
 
-            <div id="Notifications-Tooltip" class="user-profile-tooltip">
+            <div id="Notifications-Tooltip" class="user-profile-tooltip hidden">
 
             </div>
 
             <button
-                id="User-Profile-Button"
-                title="User Profile">
+                id="User-Profile-Btn"
+                title="User Profile"
+                aria-controls="User-Profile-Tooltip">
                 <img
                     src="site-icons/user-profile-icon.png"
                     alt="user profile icon"
                     width="40" height="40">
             </button>
 
-            <div id="User-Profile-Tooltip" class="user-profile-tooltip">
-                
+            <div id="User-Profile-Tooltip" class="user-profile-tooltip hidden" aria-hidden="true" tabindex="-2">
+                <div id="User-Fullname">You are not signed in</div>
+                <div id="User-Email" class="hidden"></div>
+                <img
+                    src="site-icons/horizontal-line-icon.png"
+                    alt="horizontal line icon"
+                    width="40" height="5">
+                <button id="Account-Settings" class="hidden">Account Settings</button>
+                <button id="SignInOut-Btn">Sign In</button>
             </div>
         </div>
     </header>
 
 
-    <nav id="Nav-Panel" class="hidden" aria-hidden="true">
+    <nav id="Nav-Panel" class="collapsed">
         <div id="Nav-Tabs" class="nav-tabs">
             <button
                 type="button"
@@ -91,8 +105,21 @@
             </button>
 
             <a href=""
-                id="Library-Btn"
+                id="Home-Btn"
                 class="nav-btn collapsed"
+                aria-expanded="false">
+                <img
+                class="btn-icon"
+                src="site-icons/home-icon.png"
+                alt="home icon"
+                width="40" height="40">
+                
+                <span class="btn-text">Public Library</span>
+            </a>
+
+            <a href=""
+                id="Library-Btn"
+                class="nav-btn collapsed hidden"
                 aria-expanded="false">
                 <img
                 class="btn-icon"
@@ -118,7 +145,7 @@
 
             <a href=""
                 id="Upload-Btn"
-                class="nav-btn collapsed"
+                class="nav-btn collapsed hidden"
                 aria-expanded="false">
                 <img
                 class="btn-icon"
@@ -146,7 +173,7 @@
 
             <a href=""
                 id="Suggestion-Btn"
-                class="nav-btn collapsed"
+                class="nav-btn collapsed hidden"
                 aria-expanded="false">
                 <img
                 class="btn-icon"
@@ -160,7 +187,7 @@
     </nav>
 
 
-    <main id="Content-Panel" class="content-panel">
+    <main id="Content-Panel" class="content-panel" tabindex="-1">
         This is the content panel
     </main>
 

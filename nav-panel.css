@@ -17,7 +17,7 @@
     text-decoration: none;
 }
 
-#Nav-Panel.hidden {
+#Nav-Panel.collapsed {
     width: 50px;
 }
 
@@ -26,7 +26,11 @@
 }
 
 .info-tabs {
-    height: 100px;
+    height: 105px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 /* Base Button Styling */

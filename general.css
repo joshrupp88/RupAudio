@@ -12,4 +12,10 @@ body {
     background-color: var(--forrest);
     margin: 0;
     min-height: calc(100vh - var(--toolbar-height));
+    font: 500 16px/1 Arial;
+}
+
+/* Allows elements to be hidden by toggling this class on them */
+.hidden {
+    display: none !important;
 }

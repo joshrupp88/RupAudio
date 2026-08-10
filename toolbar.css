@@ -130,3 +130,58 @@
     width: 100%;
     height: 100%;
 }
+
+.user-profile-tooltip {
+    background-color: rgb(84, 84, 84);
+    position: absolute;
+    right: 15px;
+    top: calc(var(--toolbar-height) * 0.875);
+    text-wrap: none;
+    width: calc(var(--toolbar-height) * 2.5);
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.user-profile-tooltip div {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    white-space: nowrap;
+    margin: 0;
+    padding: 2px 2px 2px 5px;
+    height: 20px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.user-profile-tooltip button {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    white-space: nowrap;
+    margin: 0;
+    padding: 2px 2px 2px 5px;
+    height: 20px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.user-profile-tooltip button:hover {
+    transform: scale(1.04);
+    background-color: rgba(255, 255, 255, 0.085);
+}
+
+.user-profile-tooltip button:active {
+    transition: transform 0ms ease;
+    transform: none;
+}
+
+.user-profile-tooltip img {
+    width: 100%;
+    height: 2px;
+    object-fit: cover;
+    margin: 3px 0;
+}

@@ -7,28 +7,51 @@ const createClient = window.supabase.createClient;
 const _supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
 // DOM Elements
-const authSection = document.getElementById('auth-section');
-const profileSection = document.getElementById('profile-section');
-const statusMsg = document.getElementById('status-msg');
+const signInToggle = document.getElementById('Sign-In-Toggle')
+const signUpToggle = document.getElementById('Sign-Up-Toggle')
+const emailInput = document.getElementById('Email-Input')
+const passwordInput = document.getElementById('Password-Input')
+const firstnameInput = document.getElementById('Firstname-Input')
+const lastnameInput = document.getElementById('Lastname-Input')
+const statusMsg = document.getElementById('Status-Message')
+const confirmBtn = document.getElementById('Confirm-Button')
 
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+// Handle toggling between sign in and sign up
+signInToggle.addEventListener('click', () => {
+    if (!signInToggle.classList.contains('selected')) {
+        signInToggle.classList.add('selected')
+        signUpToggle.classList.remove('selected')
 
-const profileEmail = document.getElementById('profile-email');
-const usernameInput = document.getElementById('username');
-const fullNameInput = document.getElementById('full-name');
-const bioInput = document.getElementById('bio');
+        firstnameInput.classList.add('hidden')
+        lastnameInput.classList.add('hidden')
+
+        clearMessage()
+    }
+})
+
+signUpToggle.addEventListener('click', () => {
+    if (!signUpToggle.classList.contains('selected')) {
+        signUpToggle.classList.add('selected')
+        signInToggle.classList.remove('selected')
+
+        firstnameInput.classList.remove('hidden')
+        lastnameInput.classList.remove('hidden')
+
+        clearMessage()
+    }
+})
 
 // Helper to show status feedback
 function showMessage(msg, isError = false) {
     statusMsg.textContent = msg;
-    statusMsg.className = isError ? 'error' : 'success';
-    statusMsg.classList.remove('hidden');
+    statusMsg.classList.add(isError ? 'error' : 'success')
+    statusMsg.classList.remove('hidden')
 }
 
 function clearMessage() {
-    statusMsg.textContent = '';
-    statusMsg.classList.add('hidden');
+    statusMsg.textContent = ''
+    statusMsg.className = 'status-message'
+    statusMsg.classList.add('hidden')
 }
 
 // ------------------------------------------------------------------
@@ -36,109 +59,111 @@ function clearMessage() {
 // ------------------------------------------------------------------
 
 // Listen for auth state changes (automatically runs on page load/refresh)
-_supabase.auth.onAuthStateChange( async(event, session) => {
-    clearMessage();
+_supabase.auth.onAuthStateChange( async (event, session) => {
+    clearMessage()
     if (session) {
         // User is logged in
         window.location.href = 'index.html'
     } else {
-        // User is logged out
-        authSection.classList.remove('hidden');
-        profileSection.classList.add('hidden');
+        // User is NOT logged in
+        // I don't think any logic is needed here, but leaving this section just in case
     }
-});
+})
 
-// Sign Up Handler
-document.getElementById('btn-signup').addEventListener('click', async () => {
-    clearMessage();
-    const email = emailInput.value;
-    const password = passwordInput.value;
+// Simple capitalize function to handle uncapitalized names entered by users
+function titleCase(str) {
+    return str.toLowerCase().replace(/\b\w/g, char => char.toUpperCase())
+}
 
-    const { data, error } = await _supabase.auth.signUp({ email, password });
-    
-    if (error) {
-        showMessage(`Sign Up Error: ${error.message}`, true);
+// Sign up & login handler
+confirmBtn.addEventListener('click', async () => {
+    clearMessage()
+    // Check if the user is signing up or logging in
+    if (signUpToggle.classList.contains('selected')) {
+        // User is signing up
+        const email = titleCase(emailInput.value.trim())
+        const password = titleCase(passwordInput.value.trim())
+        const firstname = titleCase(firstnameInput.value.trim())
+        const lastname = titleCase(lastnameInput.value.trim())
+
+        const { data, error } = await _supabase.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: {
+                    first_name: firstname,
+                    last_name: lastname,
+                    full_name: `${firstname} ${lastname}`
+                }
+            }
+        })
+
+        if (error) {
+            showMessage('Sign-up failed. Please refresh the page and try again.', true)
+            console.error('Sign-up failed:', error.message)
+        } else {
+            showMessage('Account created! Check your email for a confirmation link.')
+        }
+
+    } else if (signInToggle.classList.contains('selected')) {
+        // User is logging in
+        const email = titleCase(emailInput.value.trim())
+        const password = titleCase(passwordInput.value.trim())
+
+        const { error } = await _supabase.auth.signInWithPassword({ email, password })
+
+        if (error) {
+            showMessage(`Login Error: ${error.message}`, true)
+        }
+
     } else {
-        showMessage('Account created! Check your email for a confirmation link (or log in if email confirmation is disabled).');
+        // Neither button was selected somehow. Display and log error
+        showMessage('Please select either "Sign In" or "Sign Up" then try again.', true)
+        console.log('Login/Signup confirmation failed. Refresh page and try again.')
     }
-});
-
-// Log In Handler
-document.getElementById('btn-login').addEventListener('click', async () => {
-    clearMessage();
-    const email = emailInput.value;
-    const password = passwordInput.value;
-
-    const { error } = await _supabase.auth.signInWithPassword({ email, password });
-    
-    if (error) {
-        showMessage(`Login Error: ${error.message}`, true);
-    }
-});
-
-// Log Out Handler
-document.getElementById('btn-logout').addEventListener('click', async () => {
-    clearMessage();
-    await _supabase.auth.signOut();
-    showMessage('Signed out successfully.');
-});
+})
 
 // ------------------------------------------------------------------
 // 4. DATABASE READ & WRITE OPERATIONS
 // ------------------------------------------------------------------
 
-// READ: Fetch user profile data from Supabase table
-async function loadUserProfile(userId) {
-    try {
-        const { data, error, status } = await _supabase
-            .from('profiles')
-            .select('username, full_name, bio')
-            .eq('id', userId)
-            .single();
 
-        if (error && status !== 406) {
-            throw error;
-        }
 
-        if (data) {
-            usernameInput.value = data.username || '';
-            fullNameInput.value = data.full_name || '';
-            bioInput.value = data.bio || '';
-        }
-    } catch (error) {
-        showMessage(`Error loading profile: ${error.message}`, true);
-    }
-}
 
-// WRITE/UPDATE: Save modified profile data back to Supabase
-document.getElementById('profile-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    clearMessage();
 
-    // Get current logged-in user
-    const { data: { user } } = await _supabase.auth.getUser();
 
-    if (!user) {
-        showMessage('No active user found.', true);
-        return;
-    }
 
-    const updates = {
-        id: user.id, // Primary Key linking to auth.users.id
-        username: usernameInput.value,
-        full_name: fullNameInput.value,
-        bio: bioInput.value,
-        updated_at: new Date().toISOString(),
-    };
 
-    // Upsert inserts a row if it doesn't exist, or updates it if it does
-    const { error } = await _supabase
-        .from('profiles')
-        .upsert(updates);
 
-    if (error) {
-        showMessage(`Save Error: ${error.message}`, true);
-    } else {
-        showMessage('Profile updated successfully!');
-    }
-});
+// // WRITE/UPDATE: Save modified profile data back to Supabase
+// document.getElementById('profile-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     clearMessage();
+
+//     // Get current logged-in user
+//     const { data: { user } } = await _supabase.auth.getUser();
+
+//     if (!user) {
+//         showMessage('No active user found.', true);
+//         return;
+//     }
+
+//     const updates = {
+//         id: user.id, // Primary Key linking to auth.users.id
+//         username: usernameInput.value,
+//         full_name: fullNameInput.value,
+//         bio: bioInput.value,
+//         updated_at: new Date().toISOString(),
+//     };
+
+//     // Upsert inserts a row if it doesn't exist, or updates it if it does
+//     const { error } = await _supabase
+//         .from('profiles')
+//         .upsert(updates);
+
+//     if (error) {
+//         showMessage(`Save Error: ${error.message}`, true);
+//     } else {
+//         showMessage('Profile updated successfully!');
+//     }
+// });

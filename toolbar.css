@@ -114,9 +114,6 @@
     transition: transform 300ms ease-in-out;
     background-color: transparent;
     border: none;
-    text-decoration: none;
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 .user-profile-section button:hover {

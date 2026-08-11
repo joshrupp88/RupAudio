@@ -114,6 +114,9 @@
     transition: transform 300ms ease-in-out;
     background-color: transparent;
     border: none;
+    text-decoration: none;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .user-profile-section button:hover {
@@ -142,6 +145,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .user-profile-tooltip div {
@@ -151,10 +155,11 @@
     white-space: nowrap;
     margin: 0;
     padding: 2px 2px 2px 5px;
-    height: 20px;
+    height: clamp(10px, calc(var(--toolbar-height) / 4), 20px);
     width: 100%;
     border-radius: 5px;
     font-weight: 700;
+    font-size: clamp(8px, calc(var(--toolbar-height) / 5), 16px);
 }
 
 .user-profile-tooltip button {
@@ -164,9 +169,10 @@
     white-space: nowrap;
     margin: 0;
     padding: 2px 2px 2px 5px;
-    height: 20px;
+    height: clamp(10px, calc(var(--toolbar-height) / 4), 20px);
     width: 100%;
     border-radius: 5px;
+    font-size: clamp(8px, calc(var(--toolbar-height) / 5), 16px);
 }
 
 .user-profile-tooltip button:hover {
@@ -183,5 +189,5 @@
     width: 100%;
     height: 2px;
     object-fit: cover;
-    margin: 3px 0;
+    margin: 4px 0;
 }

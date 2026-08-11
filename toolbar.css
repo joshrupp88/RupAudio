@@ -114,9 +114,6 @@
     transition: transform 300ms ease-in-out;
     background-color: transparent;
     border: none;
-    text-decoration: none;
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 .user-profile-section button:hover {
@@ -173,6 +170,9 @@
     width: 100%;
     border-radius: 5px;
     font-size: clamp(8px, calc(var(--toolbar-height) / 5), 16px);
+    text-decoration: none;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .user-profile-tooltip button:hover {

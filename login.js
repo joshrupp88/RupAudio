@@ -7,6 +7,7 @@ const createClient = window.supabase.createClient;
 const _supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
 // DOM Elements
+const signInUpSection = document.getElementById('SignInUp-Section')
 const signInToggle = document.getElementById('Sign-In-Toggle')
 const signUpToggle = document.getElementById('Sign-Up-Toggle')
 const emailInput = document.getElementById('Email-Input')
@@ -76,13 +77,14 @@ function titleCase(str) {
 }
 
 // Sign up & login handler
-confirmBtn.addEventListener('click', async () => {
+async function handleFormSubmission(event) {
+    event.preventDefault()
     clearMessage()
     // Check if the user is signing up or logging in
     if (signUpToggle.classList.contains('selected')) {
         // User is signing up
-        const email = titleCase(emailInput.value.trim())
-        const password = titleCase(passwordInput.value.trim())
+        const email = emailInput.value.trim().toLowerCase()
+        const password = passwordInput.value.trim()
         const firstname = titleCase(firstnameInput.value.trim())
         const lastname = titleCase(lastnameInput.value.trim())
 
@@ -107,8 +109,8 @@ confirmBtn.addEventListener('click', async () => {
 
     } else if (signInToggle.classList.contains('selected')) {
         // User is logging in
-        const email = titleCase(emailInput.value.trim())
-        const password = titleCase(passwordInput.value.trim())
+        const email = emailInput.value.trim().toLowerCase()
+        const password = passwordInput.value.trim()
 
         const { error } = await _supabase.auth.signInWithPassword({ email, password })
 
@@ -121,49 +123,10 @@ confirmBtn.addEventListener('click', async () => {
         showMessage('Please select either "Sign In" or "Sign Up" then try again.', true)
         console.log('Login/Signup confirmation failed. Refresh page and try again.')
     }
-})
+}
 
-// ------------------------------------------------------------------
-// 4. DATABASE READ & WRITE OPERATIONS
-// ------------------------------------------------------------------
+// Listen for manual button click
+confirmBtn.addEventListener('click', handleFormSubmission)
 
-
-
-
-
-
-
-
-
-// // WRITE/UPDATE: Save modified profile data back to Supabase
-// document.getElementById('profile-form').addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     clearMessage();
-
-//     // Get current logged-in user
-//     const { data: { user } } = await _supabase.auth.getUser();
-
-//     if (!user) {
-//         showMessage('No active user found.', true);
-//         return;
-//     }
-
-//     const updates = {
-//         id: user.id, // Primary Key linking to auth.users.id
-//         username: usernameInput.value,
-//         full_name: fullNameInput.value,
-//         bio: bioInput.value,
-//         updated_at: new Date().toISOString(),
-//     };
-
-//     // Upsert inserts a row if it doesn't exist, or updates it if it does
-//     const { error } = await _supabase
-//         .from('profiles')
-//         .upsert(updates);
-
-//     if (error) {
-//         showMessage(`Save Error: ${error.message}`, true);
-//     } else {
-//         showMessage('Profile updated successfully!');
-//     }
-// });
+// Listen for form submission via hitting the Enter key while in one of the input fields
+signInUpSection.addEventListener('submit', handleFormSubmission)

@@ -2,7 +2,7 @@
 :root {
     --toolbar-height: clamp(40px, calc(13.33vw - 27px), 80px);
     --golden: rgb(212, 175, 55);
-    --bronze: rgb(200, 172, 78);
+    --bronze: rgb(177, 149, 58);
     --forrest: rgb(29, 74, 10);
     --leaf: rgb(77, 110, 62);
     --tooltip-bg: rgb(158, 158, 158);
@@ -25,4 +25,25 @@ button {
     text-decoration: none;
     appearance: none;
     -webkit-appearance: none;
+}
+
+.lora-plain {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lora-bold {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.lora-italic {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
 }

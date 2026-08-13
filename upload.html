@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RupAudio Home</title>
+    <title>RupAudio Upload Media</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,14 @@
 
     <link rel="icon" type="image/png" href="site-icons/RupAudio-Logo.png">
     <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="upload.css">
     <link rel="stylesheet" href="toolbar.css">
     <link rel="stylesheet" href="nav-panel.css">
 
     <!-- Supabase JS CDN library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="general.js" defer></script>
-    <script src="homepage.js" defer></script>
+    <script src="upload.js" defer></script>
     <script src="auth.js" defer></script> <!-- Load this last so all helper functions are already defined -->
 </head>
 <body>
@@ -39,8 +39,8 @@
                     id="Search-Bar"
                     class="search-bar"
                     placeholder="Search books, songs, authors..."
-                    autocomplete="off" 
-                    autocapitalize="off" 
+                    autocomplete="off"
+                    autocapitalize="off"
                     spellcheck="false">
                 <button
                     type="button"
@@ -92,7 +92,6 @@
             </div>
         </div>
     </header>
-
 
     <nav id="Nav-Panel" class="collapsed">
         <div id="Nav-Tabs" class="nav-tabs">
@@ -194,9 +193,75 @@
         </div>
     </nav>
 
-
     <main id="Content-Panel" class="content-panel" tabindex="-1">
-        This is the content panel
+        <header id="Announcement-Header" class="announcement-header lora-bold">
+            Upload new content to your personal library and/or the Public Domain!
+        </header>
+
+        <h1 id="Upload-Prompt" class="upload-prompt">
+            How would you like to upload your audio?
+        </h1>
+
+        <div id="Upload-Container" class="upload-container">
+            <div id="RSS-Upload-Section" class="upload-section">
+                <button
+                    id="RSS-Upload-Preview"
+                    class="upload-preview"
+                    aria-controls="RSS-Details-Section">
+                    <img
+                    src="site-icons/rss-icon.png"
+                    alt="RSS icon"
+                    width="20" height="20">
+                    <h2 class="lora-plain">RSS Link</h2>
+                </button>
+                <div id="RSS-Details-Section" class="details-section" aria-hidden="true">
+                    <span class="lora-italic">Provide an RSS link (as a URL).</span>
+                    <input id="RSS-URL-Input" type="text" placeholder="Paste RSS Link here..." class="lora-italic">
+                    <span>Would you like to provide a comment on this media for other listeners?</span>
+                    <textarea
+                        id="RSS-Uploader-Comment"
+                        placeholder="Uploader optional comment (200 character limit)"
+                        class="lora-italic"
+                        rows="4"
+                        maxlength="200"></textarea>
+                    <button id="RSS-Upload-Btn">Process RSS Feed</button>
+                </div>
+            </div>
+
+            <div id="Manual-Upload-Section" class="upload-section">
+                <button
+                    id="Manual-Upload-Preview"
+                    class="upload-preview"
+                    aria-controls="Manual-Details-Section">
+                    <img
+                    src="site-icons/cloud-upload-icon.png"
+                    alt="cloud upload icon"
+                    width="20" height="20">
+                    <h2 class="lora-plain">File Upload</h2>
+                </button>
+                <div id="Manual-Details-Section" class="details-section" aria-hidden="true">
+                    <span class="lora-italic">Upload an audio file from your device (mp3, wav, etc.).</span>
+                    <!-- Hide this input field and target it with the following label to create a drop zone -->
+                    <input
+                        id="File-Upload-Input"
+                        type="file"
+                        class="hidden"
+                        accept="audio/*">
+                    <label for="File-Upload-Input" id="Drop-Zone" class="audio-file-drop-zone lora-italic">
+                        <span>Choose an audio file or drag it here</span>
+                    </label>
+                    <span class="lora-plain">Would you like to provide a comment on this media for other listeners?</span>
+                    <textarea
+                        id="Manual-Uploader-Comment"
+                        placeholder="Uploader optional comment (200 character limit)"
+                        class="lora-italic"
+                        rows="4"
+                        maxlength="200"></textarea>
+                    <button id="Manual-Upload-Btn">Upload Selected File</button>
+                </div>
+            </div>
+        </div>
+
     </main>
 
 </body>

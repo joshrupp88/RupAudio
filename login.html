@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
     <!-- Supabase JS CDN library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -40,32 +43,44 @@
                 >Sign Up</button>
         </div>
 
-        <div id="SignInUp-Section" class="section">
+        <form id="SignInUp-Section" class="section">
             <input
                 id="Email-Input"
                 type="text"
                 alt="email address field"
-                placeholder="Email address">
+                placeholder="Email address"
+                autocomplete="off" 
+                autocapitalize="off" 
+                spellcheck="false">
             <input
                 id="Password-Input"
-                type="text"
+                type="password"
                 alt="password field"
-                placeholder="Password">
+                placeholder="Password"
+                autocomplete="off" 
+                autocapitalize="off" 
+                spellcheck="false">
             <input
                 id="Firstname-Input"
                 type="text"
                 alt="first name field"
                 placeholder="First name"
-                class="hidden">
+                class="hidden"
+                autocomplete="off" 
+                autocapitalize="off" 
+                spellcheck="false">
             <input
                 id="Lastname-Input"
                 type="text"
                 alt="last name field"
                 placeholder="Last name"
-                class="hidden">
+                class="hidden"
+                autocomplete="off" 
+                autocapitalize="off" 
+                spellcheck="false">
             <p id="Status-Message" class="status-message hidden"></p>
-            <button id="Confirm-Button" class="button">Confirm</button>
-        </div>
+            <button id="Confirm-Button" type="submit" class="button">Confirm</button>
+        </form>
     </main>
 </body>
 </html>

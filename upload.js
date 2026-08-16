@@ -13,8 +13,25 @@ const manualFileUploadInput = document.getElementById('File-Upload-Input')
 const manualUploaderComment = document.getElementById('Manual-Uploader-Comment')
 const manualUploadBtn = document.getElementById('Manual-Upload-Btn')
 
+const uploadSection = document.querySelectorAll('.upload-section')
+
+// Handle the smooth animation of the max-height styling of the upload sections
+function enableSmoothTransition(elements) {
+    elements.forEach(element => {
+        element.classList.add('smooth')
+
+        clearTimeout(element._smoothTimer)
+        element._smoothTimer = setTimeout(() => {
+            element.classList.remove('smooth')
+        }, 550)
+    })
+}
+
 // Add event listener for RSS Preview Button
 RSSPreviewBtn.addEventListener('click', () => {
+    // Temporarily set the max-height transition to smooth
+    enableSmoothTransition(uploadSection)
+
     // Check if the section is already expanded
     if (!RSSUploadSection.classList.contains('expanded')) {
         // Make sure the File Upload section is hidden
@@ -33,6 +50,9 @@ RSSPreviewBtn.addEventListener('click', () => {
 
 // Add event listener for File Upload Preview Button
 manualPreviewBtn.addEventListener('click', () => {
+    // Temporarily set the max-height transition to smooth
+    enableSmoothTransition(uploadSection)
+
     // Check if the section is already expanded
     if (!manualUploadSection.classList.contains('expanded')) {
         // Make sure the RSS section is hidden
@@ -48,3 +68,5 @@ manualPreviewBtn.addEventListener('click', () => {
         manualDetailsSection.setAttribute('aria-hidden', 'true')
     }
 })
+
+// Handle manual file uploads

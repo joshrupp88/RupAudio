@@ -1,11 +1,4 @@
 .content-panel {
-    background-color: var(--leaf);
-    margin-top: var(--toolbar-height);
-    margin-left: 50px;
-    min-height: calc(100vh - var(--toolbar-height));
-    transition: margin-left 300ms ease-in-out;
-    position: relative;
-    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -25,6 +18,7 @@
     padding: 10px;
     overflow: hidden;
     font-size: clamp(15px, calc(4vw - 5px), 35px);
+    line-height: 1.2;
     overflow-wrap: break-word;
     display: flex;
     align-items: center;
@@ -48,21 +42,30 @@
     gap: 20px;
 }
 
+/* Stack the upload sections vertically if the screen is too narrow */
+@container (max-width: 1000px) {
+    .upload-container {
+        flex-direction: column;
+    } 
+}
+
 .upload-section {
     flex: 1;
     border-radius: 10px;
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.5);
-    max-width: 400px;
     height: fit-content;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     max-height: clamp(44px, calc(11.5vw - 28.2px), 73px); /* Scales to only show preview buttons */
+}
+
+.upload-section.smooth {
     transition: max-height 500ms ease-in-out;
 }
 
 .upload-section.expanded {
-    max-height: 350px; /* Expands to reveal details section */
+    max-height: 400px; /* Expands to reveal details section */
 }
 
 .upload-preview {
@@ -97,52 +100,60 @@
     padding: 10px;
 }
 
+.details-section * {
+    font-size: clamp(14px, calc(2vw + 2px), 18px);
+}
+
+.details-section input, textarea, label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    width: 98%;
+    height: 35px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    color: black;
+}
+
+.details-section textarea {
+    height: fit-content;
+    resize: none;
+}
+
+.details-section label {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .details-section span {
     margin: 5px 0;
     width: 100%;
 }
 
-.details-section input {
-    margin: 5px 0;
-    width: 98%;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: transparent;
-    color: black;
-    padding: 0 5px;
-}
-
-.details-section input::placeholder {
+.details-section input::placeholder, textarea::placeholder {
     color: black;
     opacity: 1;
-}
-
-.details-section textarea {
-    margin: 5px 0;
-    width: 98%;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: transparent;
-    color: black;
-    padding: 0 5px;
-    resize: none;
-}
-
-.details-section textarea::placeholder {
-    color: black;
-    opacity: 1;
-}
-
-.details-section label {
-    margin: 5px 0;
 }
 
 .details-section button {
-    margin-top: 5px;
+    margin: 5px 0;
     border: none;
+    border-radius: 8px;
     outline: none;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     width: 60%;
+    max-width: 300px;
+    min-width: 150px;
+    height: 35px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+    transition: transform 50ms ease-in-out;
+    padding: 5px 0 0 0;
+}
+
+.details-section button:active {
+    transform: scale(0.95);
 }

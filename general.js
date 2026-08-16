@@ -13,23 +13,53 @@ const contentPanel = document.querySelector('.content-panel')
 const btnText = document.querySelector('.btn-text')
 const navBtns = document.querySelectorAll('.nav-btn')
 
+// Live check to see if the screen is at least 600px wide
+const narrowScreen = window.matchMedia('(max-width: 600px)')
+
+// Function to handle collapsing the Nav Panel
+function collapseNavPanel() {
+    // COLLAPSE: Add collapsed class to nav buttons and add collapsed class to Nav Panel
+    navBtns.forEach(btn => {
+        btn.classList.add('collapsed')
+        btn.setAttribute('aria-expanded', 'false')
+    })
+
+    navMenu.classList.add('collapsed')
+
+    // Shift left edge of Content Panel back over to the left
+    contentPanel.style.marginLeft = '50px'
+}
+
+// Function to handle expanding the Nav Panel
+function expandNavPanel() {
+    // EXPAND: Remove collapsed class from nav buttons and remove collapsed class from Nav Panel
+    navBtns.forEach(btn => {
+        btn.classList.remove('collapsed')
+        btn.setAttribute('aria-expanded', 'true')
+    })
+
+    navMenu.classList.remove('collapsed')
+
+    if (!narrowScreen.matches) {
+        // Shift left edge of content panel to compensate for larger Nav Panel
+        contentPanel.style.marginLeft = '200px'
+    }
+}
+
 navToggleBtn.addEventListener('click', () => {
     // Check if currently collapsed
     const isCollapsed = navToggleBtn.classList.contains('collapsed')
 
     if (isCollapsed) {
-        // EXPAND: Remove collapsed class from nav buttons and remove collapsed class from Nav Panel
-        navBtns.forEach(btn => {
-            btn.classList.remove('collapsed')
-            btn.setAttribute('aria-expanded', 'true')
-        });
-
-        navMenu.classList.remove('collapsed')
-
-        // Shift left edge of content panel to compensate for larger Nav Panel
-        contentPanel.style.marginLeft = '200px'
-
+        expandNavPanel()
     } else {
+        collapseNavPanel()
+    }
+})
+
+// Collapse the Nav Panel when it loses focus
+navMenu.addEventListener('focusout', (event) => {
+    if (!navMenu.contains(event.relatedTarget)) {
         // COLLAPSE: Add collapsed class to nav buttons and add collapsed class to Nav Panel
         navBtns.forEach(btn => {
             btn.classList.add('collapsed')
@@ -42,6 +72,15 @@ navToggleBtn.addEventListener('click', () => {
         contentPanel.style.marginLeft = '50px'
     }
 })
+
+// Collapse the Nav Panel if the screen becomes too narrow
+function checkScreenWidth(event) {
+    if (event.matches) {
+        collapseNavPanel()
+    }
+}
+
+narrowScreen.addEventListener('change', checkScreenWidth)
 
 // Showing/hiding user profile tooltip
 const userProfileBtn = document.getElementById('User-Profile-Btn')

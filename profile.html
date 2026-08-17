@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RupAudio Upload Media</title>
+    <title>RupAudio Profile Manager</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,14 +12,14 @@
 
     <link rel="icon" type="image/png" href="site-icons/RupAudio-Logo.png">
     <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="profile.css">
     <link rel="stylesheet" href="toolbar.css">
     <link rel="stylesheet" href="nav-panel.css">
 
     <!-- Supabase JS CDN library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="general.js" defer></script>
-    <script src="upload.js" defer></script>
+    <script src="profile.js" defer></script>
     <script src="auth.js" defer></script> <!-- Load this last so all helper functions are already defined -->
 </head>
 <body>
@@ -39,8 +39,8 @@
                     id="Search-Bar"
                     class="search-bar"
                     placeholder="Search books, songs, authors..."
-                    autocomplete="off"
-                    autocapitalize="off"
+                    autocomplete="off" 
+                    autocapitalize="off" 
                     spellcheck="false">
                 <button
                     type="button"
@@ -92,6 +92,7 @@
             </div>
         </div>
     </header>
+
 
     <nav id="Nav-Panel" class="collapsed" tabindex="-3">
         <div id="Nav-Tabs" class="nav-tabs">
@@ -193,89 +194,151 @@
         </div>
     </nav>
 
+
     <main id="Content-Panel" class="content-panel" tabindex="-1">
-        <header id="Announcement-Header" class="announcement-header lora-bold">
-            Upload new content to your personal library and/or the Public Domain!
-        </header>
-
-        <h1 id="Upload-Prompt" class="upload-prompt">
-            How would you like to upload your audio?
-        </h1>
-
-        <div id="Upload-Container" class="upload-container">
+        <div id="Info-Section" class="section info-section">
+            <header class="lora-bold">User Information</header>
+            <div class="avatar-section">
+                <img src="site-icons/user-profile-icon.png" alt="user profile icon" width="150" height="150">
+                <button id="Profile-Pic-Btn" class="profile-button">
+                    <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                    <span class="lora-plain">Change Profile Picture</span>
+                </button>
+            </div>
             
-            <!-- RSS Link container -->
-            <div id="RSS-Upload-Section" class="upload-section">
-                <button
-                    id="RSS-Upload-Preview"
-                    class="upload-preview"
-                    aria-controls="RSS-Details-Section">
-                    <img
-                    src="site-icons/rss-icon.png"
-                    alt="RSS icon"
-                    width="20" height="20">
-                    <h2 class="lora-plain">RSS Link</h2>
-                </button>
-                <div id="RSS-Details-Section" class="details-section" aria-hidden="true">
-                    <span class="lora-italic">Provide an RSS link (as a URL).</span>
-                    <input id="RSS-URL-Input" type="text" placeholder="Paste RSS Link here..." class="lora-italic">
-                    <span>Would you like to provide a comment on this media for other listeners?</span>
-                    <textarea
-                        id="RSS-Uploader-Comment"
-                        placeholder="Uploader optional comment (200 character limit)"
-                        class="lora-italic"
-                        rows="4"
-                        maxlength="200"></textarea>
-                    <div class="public-share">
-                        <input id="RSS-Public-Checkbox" type="checkbox" checked>
-                        <p class="lora-italic">Share this with other listeners in the Public Domain section.</p>
-                    </div>
-                    <div id="RSS-Status-Message" class="status-message lora-bold hidden"></div>
-                    <button id="RSS-Upload-Btn">Process RSS Feed</button>
-                </div>
-            </div>
+            <div class="user-details-section">
 
-            <!-- File Upload container -->
-            <div id="Manual-Upload-Section" class="upload-section">
-                <button
-                    id="Manual-Upload-Preview"
-                    class="upload-preview"
-                    aria-controls="Manual-Details-Section">
-                    <img
-                    src="site-icons/cloud-upload-icon.png"
-                    alt="cloud upload icon"
-                    width="20" height="20">
-                    <h2 class="lora-plain">File Upload</h2>
-                </button>
-                <div id="Manual-Details-Section" class="details-section" aria-hidden="true">
-                    <span class="lora-italic">Upload an audio file from your device (mp3, wav, etc.).</span>
-                    <!-- Hide this input field and target it with the following label to create a drop zone -->
+                <span class="lora-bold">First Name</span>
+                <div class="user-details-container">
                     <input
-                        id="File-Upload-Input"
-                        type="file"
-                        class="hidden"
-                        accept="audio/*">
-                    <label for="File-Upload-Input" id="Drop-Zone" class="lora-italic">
-                        <span>Choose an audio file or drag it here</span>
-                    </label>
-                    <span class="lora-plain">Would you like to provide a comment on this media for other listeners?</span>
-                    <textarea
-                        id="Manual-Uploader-Comment"
-                        placeholder="Uploader optional comment (200 character limit)"
-                        class="lora-italic"
-                        rows="4"
-                        maxlength="200"></textarea>
-                    <div class="public-share">
-                        <input id="RSS-Public-Checkbox" type="checkbox" checked>
-                        <p class="lora-italic">Share this with other listeners in the Public Domain section.</p>
-                    </div>
-                    <div id="Manual-Status-Message" class="status-message lora-bold hidden"></div>
-                    <button id="Manual-Upload-Btn">Upload Selected File</button>
+                        id="First-Name-Input"
+                        type="text"
+                        class="user-details-input lora-italic"
+                        value="Josh"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false">
+                    <button id="First-Name-Btn" class="edit-button">
+                        <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                        <span class="lora-plain">Change</span>
+                    </button>
                 </div>
-            </div>
+                <span class="lora-bold">Last Name</span>
+                <div class="user-details-container">
+                    <input
+                        id="Last-Name-Input"
+                        type="text"
+                        class="user-details-input lora-italic"
+                        value="Rupprecht"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false">
+                    <button id="Last-Name-Btn" class="edit-button">
+                        <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                        <span class="lora-plain">Change</span>
+                    </button>
+                </div>
 
+                <span class="lora-bold">Email Address</span>
+                <div class="user-details-container">
+                    <input
+                        id="Email-Input"
+                        type="text"
+                        class="user-details-input lora-italic"
+                        value="joshrupp88@gmail.com"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false">
+                    <button id="Email-Btn" class="edit-button">
+                        <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                        <span class="lora-plain">Change</span>
+                    </button>
+                </div>
+                <span class="lora-bold">Username</span>
+                <input
+                    type="text"
+                    id="Username"
+                    title="This is unique and static. It cannot be changed."
+                    class="username lora-italic"
+                    value="JoshRupprecht-3Yi5"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                    readonly>
+                </input>
+                
+            </div>
         </div>
 
+        <div id="Bio-Section" class="section bio-section">
+            <header class="lora-bold">About Me</header>
+            <div class="prompt-section">
+                <span class="lora-bold">Describe yourself to other RupAudio listeners!</span>
+                <button id="Bio-Btn" class="profile-button">
+                    <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                    <span class="lora-plain">Confirm</span>
+                </button>
+            </div>
+            <textarea
+                id="Bio-Input"
+                class="bio-input lora-italic"
+                rows="6"
+                maxlength="400"
+                placeholder="Share something about yourself and your reading interests..."></textarea>
+        </div>
+
+        <div id="Security-Section" class="section security-section">
+            <header class="lora-bold">Security</header>
+            <div id="Security-Top-Section">
+                <div id="Current-PW-Section" class="pw-section">
+                    <span class="lora-bold">Current Password</span>
+                    <div class="pw-container">
+                        <input id="PW-Input-1" type="password">
+                        <button id="PW-Toggle-1">
+                            <img
+                                src="site-icons/password-reveal-icon.png"
+                                alt="password reveal icon"
+                                width="20" height="20">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Security-Bottom-Section">
+                <div id="New-PW-Section" class="pw-section">
+                    <span class="lora-bold">New Password</span>
+                    <div class="pw-container">
+                        <input id="PW-Input-2" type="password">
+                        <button id="PW-Toggle-2">
+                            <img
+                                src="site-icons/password-reveal-icon.png"
+                                alt="password reveal icon"
+                                width="20" height="20">
+                        </button>
+                    </div>
+                </div>
+                <div id="Confirm-PW-Section" class="pw-section">
+                    <span class="lora-bold">Confirm New Password</span>
+                    <div class="pw-container">
+                        <input id="PW-Input-3" type="password">
+                        <button id="PW-Toggle-3">
+                            <img
+                                src="site-icons/password-reveal-icon.png"
+                                alt="password reveal icon"
+                                width="20" height="20">
+                        </button>
+                    </div>
+                    <button id="Update-PW-Btn" class="profile-button">
+                        <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
+                        <span class="lora-plain">Update Password</span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </main>
 
 </body>

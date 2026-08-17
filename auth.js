@@ -10,8 +10,15 @@ _supabase.auth.onAuthStateChange(async (event, session) => {
     // Handle routing and UI updates based on the event type
     switch (event) {
         case 'INITIAL_SESSION':
+            // Fires once on page load after reading localStorage
+            if (session) updateUIForUser(session.user)
+            // Kick to homepage if signed out and on a restricted page
+            else if (checkCurrentPage()) window.location.href = 'index.html'
+            console.log('Redirected to homepage due to sign-in status and previous page location.')
+            break
+
         case 'SIGNED_IN':
-            // Fires once on page load after reading localStorage and upon manual sign in
+            // Fires on manual sign in
             if (session) updateUIForUser(session.user)
             break
 
@@ -37,12 +44,13 @@ _supabase.auth.onAuthStateChange(async (event, session) => {
 // Define all elements that require hiding/unhiding
 const privateButtons = []
 
-// notificationsBtn and userProfileBtn were already declared in homepage.js
+// notificationsBtn and userProfileBtn were already declared in general.js
 const libraryTab = document.getElementById('Library-Btn')
 const uploadTab = document.getElementById('Upload-Btn')
 const suggestionBtn = document.getElementById('Suggestion-Btn')
 const userFullname = document.getElementById('User-Fullname')
 const userEmail = document.getElementById('User-Email')
+const userAccountSettingsBtn = document.getElementById('Account-Settings')
 
 privateButtons.push(
     notificationsBtn,
@@ -62,5 +70,18 @@ async function updateUIForUser() {
     SignInOutBtn.textContent = 'Sign Out'
     userFullname.textContent = (await _supabase.auth.getSession()).data.session?.user?.user_metadata?.full_name
     userEmail.textContent = (await _supabase.auth.getUser()).data.user?.email
+    userAccountSettingsBtn.classList.remove('hidden')
 }
 
+// Define all keywords for website pages restricted to logged-in users
+const restrictedPageKeywords = ['upload', 'library', 'feedback']
+
+// Return true if the current page is a restricted page
+function checkCurrentPage() {
+    const currentPage = window.location.href.toLocaleLowerCase()
+
+    // .some() returns true if any keyword in the array matches and returns false otherwise
+    return restrictedPageKeywords.some(keyword =>
+        currentPage.includes(keyword.toLowerCase())
+    )
+}

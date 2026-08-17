@@ -159,7 +159,8 @@
     font-size: clamp(8px, calc(var(--toolbar-height) / 5), 16px);
 }
 
-.user-profile-tooltip button {
+.user-profile-tooltip button,
+.user-profile-tooltip a {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -169,18 +170,22 @@
     height: clamp(10px, calc(var(--toolbar-height) / 4), 20px);
     width: 100%;
     border-radius: 5px;
+    transition: transform 300ms ease-in-out;
     font-size: clamp(8px, calc(var(--toolbar-height) / 5), 16px);
     text-decoration: none;
+    color: inherit;
     appearance: none;
     -webkit-appearance: none;
 }
 
-.user-profile-tooltip button:hover {
+.user-profile-tooltip button:hover,
+.user-profile-tooltip a:hover {
     transform: scale(1.04);
     background-color: rgba(255, 255, 255, 0.085);
 }
 
-.user-profile-tooltip button:active {
+.user-profile-tooltip button:active,
+.user-profile-tooltip a:active {
     transition: transform 0ms ease;
     transform: none;
 }

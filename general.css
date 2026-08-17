@@ -25,6 +25,8 @@ body {
     position: relative;
     z-index: 1;
 	container-type: inline-size;
+	container-name: contentPanel;
+	padding-bottom: 20px;
 }
 
 /* Allows elements to be hidden by toggling this class on them */
@@ -40,48 +42,48 @@ button {
 }
 
 .lora-plain {
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+	font-family: "Lora", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
 }
 
 .lora-bold {
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
+	font-family: "Lora", serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
 }
 
 .lora-italic {
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: italic;
+	font-family: "Lora", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: italic;
 }
 
 /* Apply standard properties to the page root and all containers */
 html, body, * {
-  scrollbar-color: var(--golden) var(--bronze);
-  scrollbar-width: thin;
+	scrollbar-color: var(--golden) var(--bronze);
+	scrollbar-width: thin;
 }
 
 /* Apply WebKit styles to all scrollable elements globally */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px; /* For horizontal scrollbars */
+	width: 8px;
+	height: 8px; /* For horizontal scrollbars */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bronze);
-  border-radius: 4px;
+	background: var(--bronze);
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--golden);
-  border-radius: 4px;
+	background: var(--golden);
+	border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--golden);
+	background: var(--golden);
 }

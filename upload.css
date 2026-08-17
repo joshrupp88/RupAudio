@@ -8,7 +8,7 @@
 .announcement-header {
     background-color: var(--bronze);
     margin: 15px;
-    width: 80%;
+    width: 85%;
     height: auto;
     aspect-ratio: 20 / 2;
     max-height: 100px;
@@ -65,7 +65,7 @@
 }
 
 .upload-section.expanded {
-    max-height: 400px; /* Expands to reveal details section */
+    max-height: 600px; /* Expands to reveal details section */
 }
 
 .upload-preview {
@@ -104,14 +104,17 @@
     font-size: clamp(14px, calc(2vw + 2px), 18px);
 }
 
-.details-section input, textarea, label {
+.details-section input[type="text"],
+.details-section input[type="file"],
+.details-section textarea,
+.details-section label {
     display: flex;
     align-items: center;
     margin: 5px 0;
     padding: 5px;
     width: 98%;
     height: 35px;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: transparent;
     color: black;
@@ -135,6 +138,37 @@
 .details-section input::placeholder, textarea::placeholder {
     color: black;
     opacity: 1;
+}
+
+.public-share {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.status-message {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.status-message.success {
+    background-color: rgb(20, 131, 20);
+}
+
+.status-message.error {
+    background-color: rgb(120, 27, 27);
+}
+
+.details-section input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+}
+
+.details-section p {
+    margin: 5px;
 }
 
 .details-section button {

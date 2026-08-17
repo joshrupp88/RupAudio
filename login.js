@@ -130,3 +130,6 @@ confirmBtn.addEventListener('click', handleFormSubmission)
 
 // Listen for form submission via hitting the Enter key while in one of the input fields
 signInUpSection.addEventListener('submit', handleFormSubmission)
+
+// Set page focus to Email Address input field by default
+emailInput.focus()

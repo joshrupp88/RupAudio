@@ -205,6 +205,24 @@
     font-size: 18px;
 }
 
+@container contentPanel (385px <= width <= 420px) {
+    .prompt-section>span {
+        font-size: 16px;
+    }
+}
+
+@container contentPanel (355px < width < 385px) {
+    .prompt-section>span {
+        font-size: 14px;
+    }
+}
+
+@container contentPanel (max-width: 355px) {
+    .prompt-section>span {
+        font-size: 12px;
+    }
+}
+
 .prompt-section button {
     margin: 0 0 0 10px;
     height: 100%;

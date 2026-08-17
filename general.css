@@ -13,6 +13,7 @@ body {
     margin: 0;
     min-height: calc(100vh - var(--toolbar-height));
     font: 500 16px/1 Arial;
+	color: black;
 }
 
 /* Generic content panel settings */
@@ -43,6 +44,7 @@ button * {
 	-webkit-tap-highlight-color: transparent;
 	-webkit-user-select: none;
     user-select: none;
+	color: inherit;
 }
 
 .lora-plain {

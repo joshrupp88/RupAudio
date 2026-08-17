@@ -35,10 +35,14 @@ body {
 }
 
 /* Disable mobile browser native decoration of button elements */
-button {
+button,
+button * {
     text-decoration: none;
     appearance: none;
     -webkit-appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+    user-select: none;
 }
 
 .lora-plain {

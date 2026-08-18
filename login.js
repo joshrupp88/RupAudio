@@ -44,7 +44,7 @@ signUpToggle.addEventListener('click', () => {
 
 // Helper to show status feedback
 function showMessage(msg, isError = false) {
-    statusMsg.textContent = msg;
+    statusMsg.textContent = msg
     statusMsg.classList.add(isError ? 'error' : 'success')
     statusMsg.classList.remove('hidden')
 }

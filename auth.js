@@ -13,8 +13,10 @@ _supabase.auth.onAuthStateChange(async (event, session) => {
             // Fires once on page load after reading localStorage
             if (session) updateUIForUser(session.user)
             // Kick to homepage if signed out and on a restricted page
-            else if (checkCurrentPage()) window.location.href = 'index.html'
-            console.log('Redirected to homepage due to sign-in status and previous page location.')
+            else if (checkCurrentPage()) {
+                window.location.href = 'index.html'
+                console.log('Redirected to homepage due to sign-in status and previous page location.')
+            }
             break
 
         case 'SIGNED_IN':

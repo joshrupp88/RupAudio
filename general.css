@@ -11,7 +11,7 @@
 body {
     background-color: var(--forrest);
     margin: 0;
-    min-height: calc(100vh - var(--toolbar-height));
+    min-height: 100vh;
     font: 500 16px/1 Arial;
 	color: black;
 }
@@ -19,9 +19,11 @@ body {
 /* Generic content panel settings */
 .content-panel {
     background-color: var(--leaf);
-    margin-top: var(--toolbar-height);
+	box-sizing: border-box;
+	margin-top: 0;
+    padding-top: var(--toolbar-height);
     margin-left: 50px;
-    min-height: calc(100vh - var(--toolbar-height));
+    min-height: 100vh;
     transition: margin-left 300ms ease-in-out;
     position: relative;
     z-index: 1;

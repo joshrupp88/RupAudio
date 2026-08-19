@@ -15,7 +15,8 @@ const passwordInput = document.getElementById('Password-Input')
 const firstnameInput = document.getElementById('Firstname-Input')
 const lastnameInput = document.getElementById('Lastname-Input')
 const statusMsg = document.getElementById('Status-Message')
-const confirmBtn = document.getElementById('Confirm-Button')
+const confirmBtn = document.getElementById('Confirm-Btn')
+const forgotBtn = document.getElementById('Forgot-Btn')
 
 // Handle toggling between sign in and sign up
 signInToggle.addEventListener('click', () => {
@@ -25,6 +26,7 @@ signInToggle.addEventListener('click', () => {
 
         firstnameInput.classList.add('hidden')
         lastnameInput.classList.add('hidden')
+        forgotBtn.classList.remove('hidden')
 
         clearMessage()
     }
@@ -37,6 +39,7 @@ signUpToggle.addEventListener('click', () => {
 
         firstnameInput.classList.remove('hidden')
         lastnameInput.classList.remove('hidden')
+        forgotBtn.classList.add('hidden')
 
         clearMessage()
     }
@@ -45,8 +48,8 @@ signUpToggle.addEventListener('click', () => {
 // Helper to show status feedback
 function showMessage(msg, isError = false) {
     statusMsg.textContent = msg
+    statusMsg.className = 'status-message'
     statusMsg.classList.add(isError ? 'error' : 'success')
-    statusMsg.classList.remove('hidden')
 }
 
 function clearMessage() {
@@ -124,6 +127,32 @@ async function handleFormSubmission(event) {
         console.log('Login/Signup confirmation failed. Refresh page and try again.')
     }
 }
+
+// Forgot password button form submission
+forgotBtn.addEventListener('click', async () => {
+    // Make sure the user has provided an email
+    if (!emailInput.value) {
+        showMessage('Please provide your email address.', true)
+        return null
+    }
+
+    // Submit reset email request to Supabase
+    try {
+        const { data, error } = await _supabase.auth.resetPasswordForEmail(emailInput.value, {
+            redirectTo: "https://books.rupaudio.com/rest-password/html"
+        })
+
+        if (error) {
+            showMessage(`Error requesting password reset: ${error.message}`, true)
+            return null
+        }
+
+        showMessage('Password reset email sent successfully!')
+        return data
+    } catch (err) {
+        showMessage(`Unexpected error: ${err}`)
+    }
+})
 
 // Listen for manual button click
 confirmBtn.addEventListener('click', handleFormSubmission)

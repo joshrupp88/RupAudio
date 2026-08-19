@@ -76,7 +76,7 @@ async function updateUIForUser() {
 }
 
 // Define all keywords for website pages restricted to logged-in users
-const restrictedPageKeywords = ['upload', 'library', 'feedback']
+const restrictedPageKeywords = ['upload', 'library', 'feedback', 'profile']
 
 // Return true if the current page is a restricted page
 function checkCurrentPage() {

@@ -180,33 +180,89 @@ async function updateUserEmail(newEmail) {
         })
 
         if (error) {
-            console.error('Error updating email:', error.message)
-            return null
+            if (error.status === 429) {
+                console.error("You're requesting email changes too quickly. Please wait 24 hours before trying again.")
+                showMessage("You're requesting email changes too quickly. Please wait 24 hours before trying again.", true)
+                return null
+            } else {
+                console.error('Error updating email:', error.message)
+                showMessage(`Error updating email: ${error.message}`, true)
+                return null
+            }
         }
 
-        console.log('Confirmation email sent to new address:', data)
+        console.log('Confirmation email sent to current address:', data)
         return data
     } catch (err) {
         console.error('Unexpected error:', err)
     }
 }
 
-emailBtn.addEventListener('click', () => {
+emailBtn.addEventListener('click', async () => {
     // Check if the new value is different and valid
     if (emailInput.value === userProfileData.email) {
         showMessage('This is already your registered email. Type a new address to change it.', true)
     } else {
-        updateUserEmail(emailInput.value)
-        clearMessage()
-        showMessage('A confirmation email was sent to your new email address!')
+        const result = await updateUserEmail(emailInput.value)
+        if (result) {
+            clearMessage()
+            showMessage('A confirmation email was sent to your current email address. Once confirmed, another email will be sent to your new address.')
+        }
+    }
+})
+
+// Allow the user to update their password
+async function changePassword(currentPassword, newPassword, confirmPassword) {
+    // Confirm new passwords match
+    if (newPassword !== confirmPassword) {
+        showMessage('New passwords do not match.', true)
+        return
+    }
+
+    // Get current user's email
+    const { data: { user }, error: userError } = await _supabase.auth.getUser()
+    if (userError || !user) {
+        showMessage('Error authenticating your session. Please sign out and try again.', true)
+        return
+    }
+
+    // Verify current password by attempting a sign-in
+    const { error: signInError } = await _supabase.auth.signInWithPassword({
+        email: user.email,
+        password: currentPassword
+    })
+
+    if (signInError) {
+        showMessage('Incorrect current password.', true)
+        return
+    }
+
+    // Update to new password
+    const { data, error: updateError } = await _supabase.auth.updateUser({
+        password: newPassword
+    })
+
+    if (updateError) {
+        showMessage('Failed to update password.', true)
+        return
+    }
+
+    showMessage('Password updated successfully!')
+}
+
+updatePwBtn.addEventListener('click', async () => {
+    if (currentPwInput.value && newPwInput.value) {
+        changePassword(currentPwInput.value, newPwInput.value, confirmPwInput.value)
+    } else {
+        showMessage('Please type your current password as well as you new password.', true)
     }
 })
 
 // Display status message upon failure or successful profile update
 function showMessage(msg, isError = false) {
     statusMsg.textContent = msg
+    statusMsg.classList = 'status-message'
     statusMsg.classList.add(isError ? 'error' : 'success')
-    statusMsg.classList.remove('hidden')
 }
 
 function clearMessage() {

@@ -139,7 +139,7 @@ forgotBtn.addEventListener('click', async () => {
     // Submit reset email request to Supabase
     try {
         const { data, error } = await _supabase.auth.resetPasswordForEmail(emailInput.value, {
-            redirectTo: "https://books.rupaudio.com/rest-password/html"
+            redirectTo: "https://books.rupaudio.com/reset-password/html"
         })
 
         if (error) {

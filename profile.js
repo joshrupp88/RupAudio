@@ -291,7 +291,7 @@ avatarInput.addEventListener('change', async (event) => {
 
         // Create a unique file path using User ID and file extension
         const fileExt = file.name.split('.').pop()
-        const fileName = `avatar.${fileExt}`
+        const fileName = `avatar_${Date.now()}.${fileExt}`
         const folderName = user.id
         const filePath = `${folderName}/${fileName}`
 

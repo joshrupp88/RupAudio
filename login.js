@@ -17,6 +17,7 @@ const lastnameInput = document.getElementById('Lastname-Input')
 const statusMsg = document.getElementById('Status-Message')
 const confirmBtn = document.getElementById('Confirm-Btn')
 const forgotBtn = document.getElementById('Forgot-Btn')
+const newPwToggle = document.getElementById('New-Pw-Toggle')
 
 // Handle toggling between sign in and sign up
 signInToggle.addEventListener('click', () => {
@@ -136,6 +137,9 @@ forgotBtn.addEventListener('click', async () => {
         return null
     }
 
+    // Display "loading" status message
+    showMessage('Loading, please wait...')
+
     // Submit reset email request to Supabase
     try {
         const { data, error } = await _supabase.auth.resetPasswordForEmail(emailInput.value, {
@@ -151,6 +155,16 @@ forgotBtn.addEventListener('click', async () => {
         return data
     } catch (err) {
         showMessage(`Unexpected error: ${err}`)
+    }
+})
+
+// Toggle visibility of password input field
+newPwToggle.addEventListener('click', () => {
+    const inputType = passwordInput.getAttribute('type')
+    if (inputType === 'password') {
+        passwordInput.setAttribute('type', 'text')
+    } else {
+        passwordInput.setAttribute('type', 'password')
     }
 })
 

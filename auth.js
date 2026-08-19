@@ -1,8 +1,3 @@
-// Page auth state monitor and private content loader
-const SUPABASE_URL = 'https://hvhhbdyvnboaoaqofihy.supabase.co'
-const SUPABASE_KEY = 'sb_publishable_unjzRwmoOqkEFLTsBzDE9g_l9RgNjRx'
-const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
-
 _supabase.auth.onAuthStateChange(async (event, session) => {
     // Log the event for debugging
     console.log(`[Auth Event]: ${event}`, session ? `User: ${session.user.email}` : '| No Session')
@@ -53,6 +48,7 @@ const suggestionBtn = document.getElementById('Suggestion-Btn')
 const userFullname = document.getElementById('User-Fullname')
 const userEmail = document.getElementById('User-Email')
 const userAccountSettingsBtn = document.getElementById('Account-Settings')
+const toolbarAvatar = document.getElementById('Toolbar-Avatar')
 
 privateButtons.push(
     notificationsBtn,
@@ -70,9 +66,11 @@ async function updateUIForUser() {
 
     // Update the User-Profile-Tooltip
     SignInOutBtn.textContent = 'Sign Out'
-    userFullname.textContent = (await _supabase.auth.getSession()).data.session?.user?.user_metadata?.full_name
+    const { data: { user }, error } = await _supabase.auth.getUser()
+    userFullname.textContent = user?.user_metadata?.full_name
     userEmail.textContent = (await _supabase.auth.getUser()).data.user?.email
     userAccountSettingsBtn.classList.remove('hidden')
+    loadUserAvatar()
 }
 
 // Define all keywords for website pages restricted to logged-in users
@@ -86,4 +84,26 @@ function checkCurrentPage() {
     return restrictedPageKeywords.some(keyword =>
         currentPage.includes(keyword.toLowerCase())
     )
+}
+
+// Load user's avatar if one exists
+async function loadUserAvatar() {
+    // Verify user is authenticated
+    const { data: { user }, error: userError } = await _supabase.auth.getUser()
+    if (userError || !user) throw new Error('User not logged in.')
+
+    const folderName = user.id
+    const { data: files } = await _supabase.storage
+            .from('avatars')
+            .list(folderName)
+    
+    // Update the userAvatarImg src if the user has uploaded an avatar
+    if (files.length > 0) {
+        const fileName = files[0].name
+        const { data: { publicUrl } } = await _supabase.storage
+            .from('avatars')
+            .getPublicUrl(`${folderName}/${fileName}`)
+        toolbarAvatar.src = publicUrl
+    }
+    console.log('User avatar loaded.')
 }

@@ -70,6 +70,7 @@ async function handleFormSubmission(event) {
 
     showMessage('Password updated successfully! Redirecting to login page...')
     setTimeout(() => {
+        await _supabase.auth.signOut()
         window.location.href = 'login.html'
     }, 2000)
 }

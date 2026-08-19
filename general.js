@@ -1,3 +1,8 @@
+// Page auth state monitor and private content loader
+const SUPABASE_URL = 'https://hvhhbdyvnboaoaqofihy.supabase.co'
+const SUPABASE_KEY = 'sb_publishable_unjzRwmoOqkEFLTsBzDE9g_l9RgNjRx'
+const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY)
+
 // Force page refresh on browser forward/back button
 window.addEventListener('pageshow', (event) => {
   // event.persisted is true if the page was restored from the back-forward cache

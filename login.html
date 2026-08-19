@@ -35,11 +35,11 @@
         <div id="SignInUp-Toggle" class="toggle">
             <button
                 id="Sign-In-Toggle"
-                class="toggle-button selected"
+                class="toggle-button selected lora-bold"
                 >Sign In</button>
             <button
                 id="Sign-Up-Toggle"
-                class="toggle-button"
+                class="toggle-button lora-bold"
                 >Sign Up</button>
         </div>
 
@@ -52,14 +52,19 @@
                 autocomplete="off" 
                 autocapitalize="off" 
                 spellcheck="false">
-            <input
-                id="Password-Input"
-                type="password"
-                alt="password field"
-                placeholder="Password"
-                autocomplete="off" 
-                autocapitalize="off" 
-                spellcheck="false">
+            <div class="input-container">
+                <input
+                    id="Password-Input"
+                    type="password"
+                    alt="password field"
+                    placeholder="Password"
+                    autocomplete="off" 
+                    autocapitalize="off" 
+                    spellcheck="false">
+                <button type="button" id="New-Pw-Toggle" tabindex="-1">
+                    <img src="site-icons/password-reveal-icon.png" alt="reveal password icon">
+                </button>
+            </div>
             <button
                 id="Forgot-Btn"
                 type="button"

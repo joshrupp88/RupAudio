@@ -80,6 +80,11 @@
     width: auto;
     aspect-ratio: 1 / 1;
     flex: none;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bronze);
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
 .profile-button {

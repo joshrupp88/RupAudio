@@ -19,8 +19,8 @@
     <!-- Supabase JS CDN library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="general.js" defer></script>
-    <script src="auth.js" defer></script>
     <script src="profile.js" defer></script>
+    <script src="auth.js" defer></script>
 </head>
 <body>
 
@@ -75,6 +75,7 @@
                 title="User Profile"
                 aria-controls="User-Profile-Tooltip">
                 <img
+                    id="Toolbar-Avatar"
                     src="site-icons/user-profile-icon.png"
                     alt="user profile icon"
                     width="40" height="40">
@@ -201,11 +202,21 @@
         <div id="Info-Section" class="section info-section">
             <header class="lora-bold">User Information</header>
             <div class="avatar-section">
-                <img src="site-icons/user-profile-icon.png" alt="user profile icon" width="150" height="150">
+                <img
+                    id="User-Avatar"
+                    src="site-icons/user-profile-icon.png"
+                    alt="user profile icon"
+                    width="150"
+                    height="150">
                 <button id="Profile-Pic-Btn" class="profile-button">
                     <img src="site-icons/edit-icon.png" alt="edit-icon" width="20" height="20">
                     <span class="lora-plain">Change Profile Picture</span>
                 </button>
+                <input
+                    id="Avatar-Input"
+                    type="file"
+                    accept="image/jpeg, image/png, image/webp, image/gif, image/jpg"
+                    class="hidden">
             </div>
             
             <div class="user-details-section">
@@ -300,7 +311,7 @@
                     <span class="lora-bold">Current Password</span>
                     <div class="pw-container">
                         <input id="PW-Input-1" type="password">
-                        <button id="PW-Toggle-1">
+                        <button id="PW-Toggle-1" tabindex="-1">
                             <img
                                 src="site-icons/password-reveal-icon.png"
                                 alt="password reveal icon"
@@ -315,7 +326,7 @@
                     <span class="lora-bold">New Password</span>
                     <div class="pw-container">
                         <input id="PW-Input-2" type="password">
-                        <button id="PW-Toggle-2">
+                        <button id="PW-Toggle-2" tabindex="-1">
                             <img
                                 src="site-icons/password-reveal-icon.png"
                                 alt="password reveal icon"
@@ -327,7 +338,7 @@
                     <span class="lora-bold">Confirm New Password</span>
                     <div class="pw-container">
                         <input id="PW-Input-3" type="password">
-                        <button id="PW-Toggle-3">
+                        <button id="PW-Toggle-3" tabindex="-1">
                             <img
                                 src="site-icons/password-reveal-icon.png"
                                 alt="password reveal icon"

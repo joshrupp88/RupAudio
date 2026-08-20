@@ -10,7 +10,8 @@
     background-color: var(--golden);
     transition: width 300ms ease-in-out;
     font: 500 16px Arial;
-    z-index: 100;
+    z-index: 90;
+    box-shadow: 0 0 3px 0 black;
 }
 
 #Nav-Panel a {

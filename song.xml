@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" 
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:music="http://ogp.me/ns/music#">
+  <channel>
+    <title><![CDATA[Open Music Library - Public Domain Classics]]></title>
+    <link>https://archive.org/details/netlabels</link>
+    <description><![CDATA[Public domain and Creative Commons zero musical compositions.]]></description>
+    <language>en</language>
+    <itunes:category text="Music" />
+    
+    <!-- ALBUM / TRACK ITEM -->
+    <item>
+      <title><![CDATA[Suite No. 1 in G Major - Preludium]]></title>
+      <itunes:author><![CDATA[Johann Sebastian Bach]]></itunes:author>
+      <music:musician><![CDATA[Johann Sebastian Bach]]></music:musician>
+      <music:album><![CDATA[Cello Suites]]></music:album>
+      <itunes:summary><![CDATA[Performed by John Doe. Released under Creative Commons Zero (Public Domain).]]></itunes:summary>
+      
+      <!-- Direct Link to Audio Stream -->
+      <enclosure url="https://archive.org/download/bach_cello_suite1/01_prelude_64kb.mp3" 
+                 length="4194304" 
+                 type="audio/mpeg" />
+                 
+      <!-- Alternative High-Quality Stream (Media RSS Extension) -->
+      <media:content url="https://archive.org/download/bach_cello_suite1/01_prelude_lossless.flac" 
+                     type="audio/flac" 
+                     expression="full" 
+                     duration="165" />
+                     
+      <itunes:duration>00:02:45</itunes:duration>
+      <guid isPermaLink="false">bach-cello-suite-1-01</guid>
+    </item>
+  </channel>
+</rss>

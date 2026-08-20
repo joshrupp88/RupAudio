@@ -1,0 +1,245 @@
+<?xml version="1.0" ?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule"
+     xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+  <title><![CDATA[Celtic Wonder-tales by Ella Young (1867 - 1956)]]></title>
+  <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+  <atom:link rel="self" href="https://librivox.org/rss/22497" />
+  <description><![CDATA[ Stories of might and main, romance and tragedy among the Tuatha DeDanaan with Brigit, Lir, Manannaun, Ethaun and others. Great ancient gods of wind, water and earth and their children mingle with people of the Faeries, heroes and the after-world. Told with poetry and wit by Ella Young in an old and familiar 'honey-sweet wisdom of speech'. An important part of the Celtic revival in Ireland.- Summary by Czandra]]></description>
+  <!--<genre>project element=Genre</genre>-->
+  <language><![CDATA[en]]></language>
+  <itunes:type>serial</itunes:type>
+  <itunes:author>LibriVox</itunes:author>
+  <itunes:summary><![CDATA[ Stories of might and main, romance and tragedy among the Tuatha DeDanaan with Brigit, Lir, Manannaun, Ethaun and others. Great ancient gods of wind, water and earth and their children mingle with people of the Faeries, heroes and the after-world. Told with poetry and wit by Ella Young in an old and familiar 'honey-sweet wisdom of speech'. An important part of the Celtic revival in Ireland.- Summary by Czandra]]></itunes:summary>
+  <itunes:owner>
+    <itunes:name>LibriVox</itunes:name>
+    <itunes:email>info@librivox.org</itunes:email>
+  </itunes:owner>
+  <itunes:category text="Arts">
+    <itunes:category text="Literature" />
+  </itunes:category>
+  <itunes:image href="https://archive.org/download/celticwondertales_2607_librivox/celticwondertales_2607.jpg" />  <!-- file loop -->
+
+    <!-- - - - - - - -->
+
+    <item>
+    <title><![CDATA[Dedication]]></title>
+    <itunes:episode><![CDATA[0]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_00_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:00:37]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_00_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+
+    <!-- - - - - - - -->
+
+    <item>
+    <title><![CDATA[The Earth Shapers]]></title>
+    <itunes:episode><![CDATA[1]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_01_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:14:13]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_01_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+
+    <!-- - - - - - - -->
+
+    <item>
+    <title><![CDATA[The Spear of Victory]]></title>
+    <itunes:episode><![CDATA[2]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_02_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:03:53]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_02_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[A Good Action]]></title>
+    <itunes:episode><![CDATA[3]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_03_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:14:15]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_03_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[How the Son of the Gobhaun Saur Sold the Sheepskin]]></title>
+    <itunes:episode><![CDATA[4]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_04_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:07:43]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_04_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[How the Son of the Gobhaun Saur Shortened the Road]]></title>
+    <itunes:episode><![CDATA[5]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_05_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:18:34]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_05_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Cow of Plenty]]></title>
+    <itunes:episode><![CDATA[6]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_06_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:12:11]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_06_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Coming of Lugh]]></title>
+    <itunes:episode><![CDATA[7]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_07_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:15:55]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_07_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Eric-Fine of Lugh]]></title>
+    <itunes:episode><![CDATA[8]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_08_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:37:59]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_08_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Great Battle]]></title>
+    <itunes:episode><![CDATA[9]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_09_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:14:44]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_09_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[Inisfail]]></title>
+    <itunes:episode><![CDATA[10]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_10_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:13:01]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_10_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Golden Fly]]></title>
+    <itunes:episode><![CDATA[11]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_11_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:19:21]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_11_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Children of Lir]]></title>
+    <itunes:episode><![CDATA[12]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_12_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:24:53]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_12_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[The Luck-child]]></title>
+    <itunes:episode><![CDATA[13]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_13_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:11:42]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_13_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <item>
+    <title><![CDATA[Conary Mor]]></title>
+    <itunes:episode><![CDATA[14]]></itunes:episode>
+    <!--<reader>file element=reader</reader> -->
+    <link><![CDATA[https://librivox.org/celtic-wonder-tales-by-ella-young/]]></link>
+            <enclosure url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_14_young_64kb.mp3" length="0" type="audio/mpeg" />
+  <itunes:explicit>No</itunes:explicit>
+  <itunes:block>No</itunes:block>
+  <itunes:duration>
+    <![CDATA[00:49:03]]>
+  </itunes:duration>
+  <!--<pubDate>file element=rss.pubDate</pubDate>-->
+  <media:content url="https://www.archive.org/download/celticwondertales_2607_librivox/celticwonder-tales_14_young_64kb.mp3" type="audio/mpeg" />
+ </item>
+    <!-- end file loop -->
+</channel>
+</rss>

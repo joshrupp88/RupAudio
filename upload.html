@@ -218,20 +218,21 @@
                     <h2 class="lora-plain">RSS Link</h2>
                 </button>
                 <div id="RSS-Details-Section" class="details-section" aria-hidden="true">
-                    <span class="lora-italic">Provide an RSS link (as a URL).</span>
+                    <span class="lora-bold">Provide an RSS link (as a URL).</span>
                     <input id="RSS-URL-Input" type="text" placeholder="Paste RSS Link here..." class="lora-italic">
-                    <span>Would you like to provide a comment on this media for other listeners?</span>
+                    <span class="lora-bold">Would you like to provide a comment on this media for other listeners?</span>
                     <textarea
                         id="RSS-Uploader-Comment"
                         placeholder="Uploader optional comment (200 character limit)"
-                        class="lora-italic"
+                        class="lora-plain"
                         rows="4"
                         maxlength="200"></textarea>
                     <div class="public-share">
                         <input id="RSS-Public-Checkbox" type="checkbox" checked>
-                        <p class="lora-italic">Share this with other listeners in the Public Domain section.</p>
+                        <p class="lora-bold">Share this with other listeners in the Public Domain section.</p>
                     </div>
-                    <div id="RSS-Status-Message" class="status-message lora-bold hidden"></div>
+                    <span class="lora-italic">(If you'd like to share this with certain users without making it public, you can do so from your library.)</span>
+                    <div id="RSS-Status-Msg" class="status-message lora-bold hidden"></div>
                     <button id="RSS-Upload-Btn">Process RSS Feed</button>
                 </div>
             </div>
@@ -249,7 +250,7 @@
                     <h2 class="lora-plain">File Upload</h2>
                 </button>
                 <div id="Manual-Details-Section" class="details-section" aria-hidden="true">
-                    <span class="lora-italic">Upload an audio file from your device (mp3, wav, etc.).</span>
+                    <span class="lora-bold">Upload an audio file from your device (mp3, wav, etc.).</span>
                     <!-- Hide this input field and target it with the following label to create a drop zone -->
                     <input
                         id="File-Upload-Input"
@@ -259,18 +260,19 @@
                     <label for="File-Upload-Input" id="Drop-Zone" class="lora-italic">
                         <span>Choose an audio file or drag it here</span>
                     </label>
-                    <span class="lora-plain">Would you like to provide a comment on this media for other listeners?</span>
+                    <span class="lora-bold">Would you like to provide a comment on this media for other listeners?</span>
                     <textarea
                         id="Manual-Uploader-Comment"
                         placeholder="Uploader optional comment (200 character limit)"
-                        class="lora-italic"
+                        class="lora-plain"
                         rows="4"
                         maxlength="200"></textarea>
                     <div class="public-share">
-                        <input id="RSS-Public-Checkbox" type="checkbox" checked>
-                        <p class="lora-italic">Share this with other listeners in the Public Domain section.</p>
+                        <input id="Manual-Public-Checkbox" type="checkbox" checked>
+                        <p class="lora-bold">Share this with other listeners in the Public Domain section.</p>
                     </div>
-                    <div id="Manual-Status-Message" class="status-message lora-bold hidden"></div>
+                    <span class="lora-italic">(If you'd like to share this with certain users without making it public, you can do so from your library.)</span>
+                    <div id="Manual-Status-Msg" class="status-message lora-bold hidden"></div>
                     <button id="Manual-Upload-Btn">Upload Selected File</button>
                 </div>
             </div>

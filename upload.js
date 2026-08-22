@@ -239,7 +239,7 @@ RSSUploadBtn.addEventListener('click', async () => {
             uploaderComment: uploaderComment
         })
 
-        showMessage('RSS', 'RSS Link processed successfully!')
+        showMessage('RSS', 'RSS Link processed successfully! View the new book in your library.')
         console.log('Successfully ingested book with ID:', bookId)
     } catch (err) {
         showMessage('RSS', 'Failed to process RSS link.', true)

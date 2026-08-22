@@ -1,6 +1,6 @@
 /* Globally set reference variables */
 :root {
-    --toolbar-height: clamp(40px, calc(13.33vw - 27px), 80px);
+    --toolbar-height: clamp(50px, calc(13.33vw - 27px), 80px);
     --golden: rgb(212, 175, 55);
     --bronze: rgb(177, 149, 58);
     --forrest: rgb(29, 74, 10);
@@ -80,6 +80,7 @@ html, body, * {
 ::-webkit-scrollbar {
 	width: 8px;
 	height: 8px; /* For horizontal scrollbars */
+	
 }
 
 ::-webkit-scrollbar-track {

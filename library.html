@@ -12,14 +12,14 @@
 
     <link rel="icon" type="image/png" href="site-icons/RupAudio-Logo.png">
     <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="library.css">
     <link rel="stylesheet" href="toolbar.css">
     <link rel="stylesheet" href="nav-panel.css">
 
     <!-- Supabase JS CDN library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="general.js" defer></script>
-    <script src="homepage.js" defer></script>
+    <script src="library.js" defer></script>
     <script src="auth.js" defer></script> <!-- Load this last so all helper functions are already defined -->
 </head>
 <body>
@@ -197,7 +197,55 @@
 
 
     <main id="Content-Panel" class="content-panel" tabindex="-1">
-        This is the content panel
+        <header id="Library-Nav-Header" class="library-nav-header">
+            <button id="All-Media-Nav-Btn" class="library-nav-button lora-bold selected">All Media</button>
+            <button id="Books-Nav-Btn" class="library-nav-button lora-bold">Books</button>
+            <button id="Songs-Nav-Btn" class="library-nav-button lora-bold">Songs</button>
+            <button id="Podcasts-Nav-Btn" class="library-nav-button lora-bold">Podcasts</button>
+            <button id="Playlists-Nav-Btn" class="library-nav-button lora-bold">Playlists</button>
+            <button id="Collections-Nav-Btn" class="library-nav-button lora-bold">Collections</button>
+        </header>
+        
+        <p id="Status-Message" class="status-message hidden"></p>
+
+        <div id="View-All-Media" class="tab">
+            <p class="all-media-table-caption lora-bold">All Library Media</p>
+
+            <div class="all-media-table-container">
+                <table id="All-Media-Table" class="all-media-table">
+                    <thead>
+                        <tr class="all-media-table-row all-media-table-header" role="row">
+                            <th scope="col" role="columnheader">Title</th>
+                            <th scope="col" role="columnheader">Author</th>
+                            <th scope="col" role="columnheader">Length</th>
+                            <th scope="col" role="columnheader">Chapters</th>
+                            <th scope="col" role="columnheader" class="far-right-col">Privacy</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Example row -->
+                        <!-- <tr class="all-media-table-row" role="row" id="*JS insert book/song UUID here*">
+                            <td role="cell">The Adventures of Tom Sawyer</td>
+                            <td role="cell">Mark Twain</td>
+                            <td role="cell">14:36:29</td>
+                            <td role="cell">18</td>
+                            <td role="cell">Public</td>
+                        </tr> -->
+
+                        <!-- JS continues inserting a row for each item in the books table matching the user's UUID -->
+                        <!-- <tr class="all-media-table-row" role="row" id="">
+                            <td role="cell"></td>
+                            <td role="cell"></td>
+                            <td role="cell"></td>
+                            <td role="cell"></td>
+                            <td role="cell"></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </main>
 
 </body>

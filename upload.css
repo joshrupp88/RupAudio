@@ -139,7 +139,7 @@
 .details-section input::placeholder,
 .details-section textarea::placeholder {
     color: black;
-    opacity: 1;
+    opacity: 0.5;
 }
 
 .details-section input:active,

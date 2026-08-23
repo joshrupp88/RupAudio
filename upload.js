@@ -189,15 +189,28 @@ async function parseRSSBookLink(RSSLink, options = {}) {
     items.forEach((item) => {
         const chapterTitle = item.querySelector('title')?.textContent.trim()
         const episodeNum = item.getElementsByTagName('itunes:episode')[0]?.textContent.trim()
-        const duration = item.getElementsByTagName('itunes:duration')[0]?.textContent.trim()
         const audioUrl = item.querySelector('enclosure')?.getAttribute('url')
+        const durationRaw = item.getElementsByTagName('itunes:duration')[0]?.textContent.trim()
+        // parse the raw duration (12:36:04) to an int value of total seconds (45364)
+        const parts = durationRaw.split(':').map(part => parseInt(part, 10) || 0) // [12, 36, 4]
+        let duration
+        if (parts.length === 3) {
+            // HH:MM:SS
+            duration = ((parts[0] * 3600) + (parts[1] * 60) + parts[2])
+        } else if (parts.length === 2) {
+            // MM:SS
+            duration = ((parts[0] *60) + parts[1])
+        } else {
+            // SS
+            duration = parts[0]
+        }
 
         if (audioUrl) {
             chaptersToInsert.push({
                 book_id: bookId, // Foreign key linking child to parent book
                 title: chapterTitle || 'Untitled Chapter',
                 chapter_number: episodeNum ? parseInt(episodeNum, 10) : null,
-                duration: duration || '00:00',
+                duration: duration || 0,
                 audio_url: audioUrl
             })
         }

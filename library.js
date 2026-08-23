@@ -100,7 +100,7 @@ async function loadLibraryBooks() {
 
     const { data: books, error: booksError } = await _supabase
         .from('books')
-        .select('id, title, author, total_chapters, is_public')
+        .select('id, title, author, total_chapters, total_duration, is_public')
         .eq('uploader', user.id)
         .order('title', { ascending: true })
 
@@ -127,10 +127,6 @@ async function loadLibraryBooks() {
         authorCell.textContent = book.author || 'Unknown Author'
         authorCell.setAttribute('role', 'cell')
 
-        const lengthCell = document.createElement('td')
-        lengthCell.textContent = 'Not available'
-        lengthCell.setAttribute('role', 'cell')
-
         const chaptersCell = document.createElement('td')
         chaptersCell.textContent = book.total_chapters ?? '0'
         chaptersCell.setAttribute('role', 'cell')
@@ -139,6 +135,34 @@ async function loadLibraryBooks() {
         privacyCell.textContent = book.is_public ? 'Public' : 'Private'
         privacyCell.setAttribute('role', 'cell')
         privacyCell.classList.add('far-right-col')
+
+        // Calculate book duration
+        const hrs = Math.floor(book.total_duration / 3600)
+        const mins = Math.floor((book.total_duration % 3600) / 60)
+        const secs = book.total_duration % 60
+
+        // Ensure single-digit values display with a leading zero
+        const padHrs = String(hrs).padStart(2, '0')
+        const padMins = String(mins).padStart(2, '0')
+        const padSecs = String(secs).padStart(2, '0')
+
+        // Only display hours and minutes if they aren't zero
+        let lengthCell
+        if (padHrs === '00') {
+            if (padMins === '00') {
+                lengthCell = document.createElement('td')
+                lengthCell.textContent = `${padSecs}s`
+                lengthCell.setAttribute('role', 'cell')
+            } else {
+                lengthCell = document.createElement('td')
+                lengthCell.textContent = `${padMins}m ${padSecs}s`
+                lengthCell.setAttribute('role', 'cell')
+            }
+        } else {
+            lengthCell = document.createElement('td')
+            lengthCell.textContent = `${padHrs}h ${padMins}m ${padSecs}s`
+            lengthCell.setAttribute('role', 'cell')
+        }
 
         row.append(
             titleCell,
